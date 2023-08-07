@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+
+        <span class="header-title">hello</span>
+
+        <span class="example-spacer"></span>
+        <button mat-button [matMenuTriggerFor]="menu">
+            <span> Hi, User</span>
+            <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>log out</button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>

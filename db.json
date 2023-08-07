@@ -1,0 +1,504 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "iPhone 12 Pro",
+            "description": "A powerful smartphone with an A14 Bionic chip and advanced camera system.",
+            "brand": "Apple",
+            "price": 999.99,
+            "availability": true,
+            "category": "Smartphones"
+        },
+        {
+            "id": 2,
+            "name": "Dell XPS 15",
+            "description": "A high-performance laptop with a stunning 15.6-inch display and Intel Core i7 processor.",
+            "brand": "Dell",
+            "price": 1599.99,
+            "availability": true,
+            "category": "Laptops"
+        },
+        {
+            "id": 3,
+            "name": "Sony WH-1000XM4",
+            "description": "Premium wireless noise-canceling headphones with exceptional sound quality.",
+            "brand": "Sony",
+            "price": 349.99,
+            "availability": true,
+            "category": "Headphones"
+        },
+        {
+            "id": 4,
+            "name": "LG OLED CX 65",
+            "description": "A top-of-the-line 65-inch OLED smart TV with stunning picture quality and built-in AI.",
+            "brand": "LG",
+            "price": 2199.99,
+            "availability": true,
+            "category": "Televisions"
+        },
+        {
+            "id": 5,
+            "name": "PlayStation 5",
+            "description": "The next-generation gaming console with powerful hardware and immersive gaming experiences.",
+            "brand": "Sony",
+            "price": 499.99,
+            "availability": true,
+            "category": "Gaming Consoles"
+        },
+        {
+            "id": 6,
+            "name": "Apple Watch Series 6",
+            "description": "A feature-packed smartwatch with health monitoring capabilities and a sleek design.",
+            "brand": "Apple",
+            "price": 399.99,
+            "availability": true,
+            "category": "Smartwatches"
+        },
+        {
+            "id": 7,
+            "name": "JBL Flip 5",
+            "description": "A portable waterproof Bluetooth speaker with powerful sound and up to 12 hours of playtime.",
+            "brand": "JBL",
+            "price": 119.99,
+            "availability": true,
+            "category": "Speakers"
+        },
+        {
+            "id": 8,
+            "name": "Canon EOS 90D",
+            "description": "A versatile DSLR camera with 32.5-megapixel sensor and 4K video recording capabilities.",
+            "brand": "Canon",
+            "price": 1299.99,
+            "availability": true,
+            "category": "Cameras"
+        },
+        {
+            "id": 9,
+            "name": "Bose QuietComfort 35 II",
+            "description": "Wireless noise-canceling headphones with excellent comfort and impressive audio performance.",
+            "brand": "Bose",
+            "price": 299.99,
+            "availability": true,
+            "category": "Headphones"
+        },
+        {
+            "id": 10,
+            "name": "iPad Air",
+            "description": "A powerful tablet with a 10.9-inch Liquid Retina display and Apple Pencil support.",
+            "brand": "Apple",
+            "price": 599.99,
+            "availability": true,
+            "category": "Tablets"
+        },
+        {
+            "id": 11,
+            "name": "Samsung Galaxy S21 Ultra",
+            "description": "A flagship smartphone with a large dynamic AMOLED display and powerful camera capabilities.",
+            "brand": "Samsung",
+            "price": 1199.99,
+            "availability": false,
+            "category": "Smartphones"
+        },
+        {
+            "id": 12,
+            "name": "HP Spectre x360",
+            "description": "A premium convertible laptop with a 13.3-inch 4K OLED display and impressive battery life.",
+            "brand": "HP",
+            "price": 1299.99,
+            "availability": false,
+            "category": "Laptops"
+        },
+        {
+            "id": 13,
+            "name": "Bose SoundLink Revolve+",
+            "description": "A portable Bluetooth speaker with 360-degree sound and water-resistant design.",
+            "brand": "Bose",
+            "price": 299.99,
+            "availability": true,
+            "category": "Speakers"
+        },
+        {
+            "id": 14,
+            "name": "Sony PlayStation 4 Pro",
+            "description": "A powerful gaming console with 4K gaming capabilities and HDR support.",
+            "brand": "Sony",
+            "price": 399.99,
+            "availability": true,
+            "category": "Gaming Consoles"
+        },
+        {
+            "id": 15,
+            "name": "Samsung QLED Q90T",
+            "description": "A premium 4K QLED smart TV with Quantum HDR technology and direct full-array backlighting.",
+            "brand": "Samsung",
+            "price": 2499.99,
+            "availability": true,
+            "category": "Televisions"
+        },
+        {
+            "id": 16,
+            "name": "Fitbit Versa 3",
+            "description": "A versatile smartwatch with built-in GPS and advanced health and fitness tracking features.",
+            "brand": "Fitbit",
+            "price": 229.99,
+            "availability": true,
+            "category": "Smartwatches"
+        },
+        {
+            "id": 17,
+            "name": "Microsoft Surface Pro 7",
+            "description": "A versatile 2-in-1 tablet/laptop with a high-resolution PixelSense display and Windows 10 OS.",
+            "brand": "Microsoft",
+            "price": 899.99,
+            "availability": true,
+            "category": "Tablets"
+        },
+        {
+            "id": 18,
+            "name": "GoPro HERO9 Black",
+            "description": "A powerful action camera with 5K video recording and improved stabilization.",
+            "brand": "GoPro",
+            "price": 449.99,
+            "availability": true,
+            "category": "Cameras"
+        },
+        {
+            "id": 19,
+            "name": "Amazon Echo Dot (4th Gen)",
+            "description": "A compact smart speaker with Alexa voice control and improved audio performance.",
+            "brand": "Amazon",
+            "price": 49.99,
+            "availability": true,
+            "category": "Speakers"
+        },
+        {
+            "id": 20,
+            "name": "Nikon D850",
+            "description": "A professional-level DSLR camera with a 45.7-megapixel sensor and 4K video recording.",
+            "brand": "Nikon",
+            "price": 2999.99,
+            "availability": true,
+            "category": "Cameras"
+        },
+        {
+            "id": 21,
+            "name": "Panasonic Lumix GH5",
+            "description": "A high-performance mirrorless camera with 20.3-megapixel sensor and 4K video recording.",
+            "brand": "Panasonic",
+            "price": 1999.99,
+            "availability": true,
+            "category": "Cameras"
+        },
+        {
+            "id": 22,
+            "name": "Sony Alpha a7 III",
+            "description": "A full-frame mirrorless camera with 24.2-megapixel sensor and 4K video capabilities.",
+            "brand": "Sony",
+            "price": 1999.99,
+            "availability": true,
+            "category": "Cameras"
+        },
+        {
+            "id": 23,
+            "name": "Fujifilm X-T4",
+            "description": "A high-performance mirrorless camera with 26.1-megapixel sensor and 4K video recording.",
+            "brand": "Fujifilm",
+            "price": 1699.99,
+            "availability": true,
+            "category": "Cameras"
+        },
+        {
+            "id": 24,
+            "name": "Nikon Z6",
+            "description": "A versatile mirrorless camera with 24.5-megapixel sensor and 4K UHD video capabilities.",
+            "brand": "Nikon",
+            "price": 1999.99,
+            "availability": true,
+            "category": "Cameras"
+        },
+        {
+            "id": 25,
+            "name": "Garmin Forerunner 945",
+            "description": "A premium GPS running watch with advanced performance monitoring and training features.",
+            "brand": "Garmin",
+            "price": 599.99,
+            "availability": true,
+            "category": "Smartwatches"
+        },
+        {
+            "id": 26,
+            "name": "Samsung Galaxy Tab S7+",
+            "description": "A powerful Android tablet with a stunning 12.4-inch Super AMOLED display and S Pen support.",
+            "brand": "Samsung",
+            "price": 849.99,
+            "availability": true,
+            "category": "Tablets"
+        },
+        {
+            "id": 27,
+            "name": "Microsoft Xbox Series X",
+            "description": "The next-generation gaming console with advanced graphics and high-speed performance.",
+            "brand": "Microsoft",
+            "price": 499.99,
+            "availability": true,
+            "category": "Gaming Consoles"
+        },
+        {
+            "id": 28,
+            "name": "Nikon D5600",
+            "description": "A versatile DSLR camera with 24.2-megapixel sensor and Full HD video recording.",
+            "brand": "Nikon",
+            "price": 699.99,
+            "availability": true,
+            "category": "Cameras"
+        },
+        {
+            "id": 29,
+            "name": "Bose SoundSport Free",
+            "description": "Truly wireless sport headphones with a comfortable and secure fit for active lifestyles.",
+            "brand": "Bose",
+            "price": 199.99,
+            "availability": true,
+            "category": "Headphones"
+        },
+        {
+            "id": 30,
+            "name": "Samsung Galaxy A52",
+            "description": "A mid-range smartphone with a vibrant Super AMOLED display and versatile camera system.",
+            "brand": "Samsung",
+            "price": 399.99,
+            "availability": true,
+            "category": "Smartphones"
+        },
+        {
+            "id": 31,
+            "name": "LG NanoCell NANO99",
+            "description": "A 75-inch 8K NanoCell smart TV with Nano Color Pro and Full Array Dimming Pro.",
+            "brand": "LG",
+            "price": 3999.99,
+            "availability": true,
+            "category": "Televisions"
+        },
+        {
+            "id": 32,
+            "name": "Bose Frames",
+            "description": "Audio sunglasses with built-in speakers for immersive sound and UV protection.",
+            "brand": "Bose",
+            "price": 199.99,
+            "availability": true,
+            "category": "Headphones"
+        },
+        {
+            "id": 33,
+            "name": "Apple MacBook Pro",
+            "description": "A powerful laptop with a Retina display and Apple's M1 chip for exceptional performance.",
+            "brand": "Apple",
+            "price": 1299.99,
+            "availability": true,
+            "category": "Laptops"
+        },
+        {
+            "id": 34,
+            "name": "Sony WH-1000XM3",
+            "description": "Wireless noise-canceling headphones with exceptional audio quality and long battery life.",
+            "brand": "Sony",
+            "price": 299.99,
+            "availability": true,
+            "category": "Headphones"
+        },
+        {
+            "id": 35,
+            "name": "Xbox Elite Wireless Controller Series 2",
+            "description": "A high-performance game controller with adjustable-tension thumbsticks and hair trigger locks.",
+            "brand": "Microsoft",
+            "price": 179.99,
+            "availability": true,
+            "category": "Gaming Consoles"
+        },
+        {
+            "id": 36,
+            "name": "Garmin Fenix 6 Pro",
+            "description": "A premium multisport GPS watch with advanced performance metrics and onboard maps.",
+            "brand": "Garmin",
+            "price": 699.99,
+            "availability": true,
+            "category": "Smartwatches"
+        },
+        {
+            "id": 37,
+            "name": "JBL Charge 4",
+            "description": "A portable waterproof Bluetooth speaker with powerful bass and long battery life.",
+            "brand": "JBL",
+            "price": 179.99,
+            "availability": true,
+            "category": "Speakers"
+        },
+        {
+            "id": 38,
+            "name": "Samsung Galaxy Buds Pro",
+            "description": "True wireless earbuds with intelligent active noise cancellation and immersive sound.",
+            "brand": "Samsung",
+            "price": 199.99,
+            "availability": true,
+            "category": "Headphones"
+        },
+        {
+            "id": 39,
+            "name": "Sony BRAVIA A8H",
+            "description": "A 55-inch 4K OLED Android smart TV with Acoustic Surface Audio and Dolby Vision.",
+            "brand": "Sony",
+            "price": 1999.99,
+            "availability": true,
+            "category": "Televisions"
+        },
+        {
+            "id": 40,
+            "name": "Fitbit Charge 4",
+            "description": "A feature-packed fitness tracker with built-in GPS and heart rate monitoring.",
+            "brand": "Fitbit",
+            "price": 149.99,
+            "availability": true,
+            "category": "Smartwatches"
+        },
+        {
+            "id": 41,
+            "name": "Microsoft Surface Laptop 4",
+            "description": "A sleek and powerful laptop with a high-resolution touchscreen and all-day battery life.",
+            "brand": "Microsoft",
+            "price": 1299.99,
+            "availability": true,
+            "category": "Laptops"
+        },
+        {
+            "id": 42,
+            "name": "Bose SoundLink Micro",
+            "description": "A small and rugged portable Bluetooth speaker with impressive sound quality.",
+            "brand": "Bose",
+            "price": 99.99,
+            "availability": true,
+            "category": "Speakers"
+        },
+        {
+            "id": 43,
+            "name": "Canon EOS R5",
+            "description": "A professional full-frame mirrorless camera with 45-megapixel sensor and 8K video recording.",
+            "brand": "Canon",
+            "price": 3899.99,
+            "availability": true,
+            "category": "Cameras"
+        },
+        {
+            "id": 44,
+            "name": "Beats Studio3 Wireless",
+            "description": "Wireless noise-canceling headphones with Apple's W1 chip and long battery life.",
+            "brand": "Beats",
+            "price": 349.99,
+            "availability": true,
+            "category": "Headphones"
+        },
+        {
+            "id": 45,
+            "name": "LG OLED C1 55",
+            "description": "A 55-inch OLED smart TV with self-lit pixels and a9 Gen 4 AI processor.",
+            "brand": "LG",
+            "price": 1799.99,
+            "availability": true,
+            "category": "Televisions"
+        },
+        {
+            "id": 46,
+            "name": "Nintendo Switch Lite",
+            "description": "A compact and lightweight gaming console for handheld gaming.",
+            "brand": "Nintendo",
+            "price": 199.99,
+            "availability": true,
+            "category": "Gaming Consoles"
+        },
+        {
+            "id": 47,
+            "name": "Garmin Venu 2",
+            "description": "A versatile GPS smartwatch with advanced health and fitness features.",
+            "brand": "Garmin",
+            "price": 399.99,
+            "availability": true,
+            "category": "Smartwatches"
+        },
+        {
+            "id": 48,
+            "name": "JBL PartyBox 310",
+            "description": "A powerful party speaker with light effects and rechargeable battery for hours of music.",
+            "brand": "JBL",
+            "price": 499.99,
+            "availability": true,
+            "category": "Speakers"
+        },
+        {
+            "id": 49,
+            "name": "Nikon Z50",
+            "description": "A compact and lightweight mirrorless camera with 20.9-megapixel sensor and 4K UHD video.",
+            "brand": "Nikon",
+            "price": 999.99,
+            "availability": true,
+            "category": "Cameras"
+        },
+        {
+            "id": 50,
+            "name": "Bose SoundSport",
+            "description": "Wireless sport headphones with a comfortable and secure fit for workouts.",
+            "brand": "Bose",
+            "price": 129.99,
+            "availability": true,
+            "category": "Headphones"
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "first_name": "John",
+            "last_name": "Doe",
+            "phone": "1234567890",
+            "email": "johndoe@example.com",
+            "password": "securepassword123"
+        },
+        {
+            "id": 2,
+            "first_name": "Jane",
+            "last_name": "Smith",
+            "phone": "9876543210",
+            "email": "janesmith@example.com",
+            "password": "strongpass456"
+        },
+        {
+            "id": 3,
+            "first_name": "Michael",
+            "last_name": "Johnson",
+            "phone": "5554443333",
+            "email": "michaeljohnson@example.com",
+            "password": "secretword789"
+        },
+        {
+            "id": 4,
+            "first_name": "Emily",
+            "last_name": "Williams",
+            "phone": "1112223333",
+            "email": "emilywilliams@example.com",
+            "password": "mypassword987"
+        },
+        {
+            "id": 5,
+            "first_name": "David",
+            "last_name": "Brown",
+            "phone": "8889990000",
+            "email": "davidbrown@example.com",
+            "password": "secure123pass"
+        },
+        {
+            "id": 6,
+            "first_name": "David",
+            "last_name": "Brown",
+            "phone": "8889990000",
+            "email": "user@mail.com",
+            "password": "ZXcv!@34"
+        }
+    ]
+}
