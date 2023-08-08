@@ -1,0 +1,13 @@
+.product-container{display: flex;min-height: calc(100vh - 64px);
+    .contents{max-width: 1600px; width: 100%;margin: auto;display: flex;}
+}
+
+.item-image-container {width: 500px;display: flex;}
+.product-image{width: 280px;margin: auto;}
+.top-content{display: flex;}
+.card-content{width: 100%;}
+.tile-title{margin-left: 50px;}
+.product-card { margin: auto; width: 100%; padding: 12px;}
+.list-section{background-color: rebeccapurple;min-height: calc(100vh - 64px);overflow-y: auto;}
+.total-section{background-color: aqua; width: 100%; max-width: 400px;height: fit-content;}
+// .total-card{}

@@ -3,14 +3,12 @@
 
         <span class="header-title">hello</span>
 
-
         <span class="example-spacer"></span>
-        <button mat-icon-button>
+        <button mat-icon-button (click)="goToCart()">
             <mat-icon>shopping_cart</mat-icon>
-
         </button>
         <button mat-button [matMenuTriggerFor]="menu">
-            <span> Hi, User</span>
+            <span> Hi, {{currentUser?.first_name}}</span>
             <mat-icon>keyboard_arrow_down</mat-icon>
         </button>
 

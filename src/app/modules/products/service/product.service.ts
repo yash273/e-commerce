@@ -16,6 +16,6 @@ export class ProductService {
   }
 
   getProductDataById(productId: number) {
-    return this.http.get(environment.baseURL + `products?id=${productId}`)
+    return this.http.get(environment.baseURL + `products/${productId}`)
   }
 }
