@@ -7,7 +7,8 @@
             "brand": "Apple",
             "price": 999.99,
             "availability": true,
-            "category": "Smartphones"
+            "category": "Smartphones",
+            "image": "https://m.media-amazon.com/images/I/71ZOtNdaZCL._AC_UY218_.jpg"
         },
         {
             "id": 2,
@@ -16,7 +17,8 @@
             "brand": "Dell",
             "price": 1599.99,
             "availability": true,
-            "category": "Laptops"
+            "category": "Laptops",
+            "image": "https://m.media-amazon.com/images/I/61s6k6hr++L._AC_UY218_.jpg"
         },
         {
             "id": 3,
@@ -25,7 +27,8 @@
             "brand": "Sony",
             "price": 349.99,
             "availability": true,
-            "category": "Headphones"
+            "category": "Headphones",
+            "image": "https://m.media-amazon.com/images/I/51SKmu2G9FL._AC_UY218_.jpg"
         },
         {
             "id": 4,
@@ -34,7 +37,8 @@
             "brand": "LG",
             "price": 2199.99,
             "availability": true,
-            "category": "Televisions"
+            "category": "Televisions",
+            "image": "https://m.media-amazon.com/images/I/81KDOQqwq0L._AC_UY218_.jpg"
         },
         {
             "id": 5,
@@ -43,7 +47,8 @@
             "brand": "Sony",
             "price": 499.99,
             "availability": true,
-            "category": "Gaming Consoles"
+            "category": "Gaming Consoles",
+            "image": "https://m.media-amazon.com/images/I/51mWHXY8hyL._AC_UY218_.jpg"
         },
         {
             "id": 6,
@@ -52,7 +57,8 @@
             "brand": "Apple",
             "price": 399.99,
             "availability": true,
-            "category": "Smartwatches"
+            "category": "Smartwatches",
+            "image": "https://m.media-amazon.com/images/I/812m5ITIUjL._AC_UY218_.jpg"
         },
         {
             "id": 7,
@@ -61,7 +67,8 @@
             "brand": "JBL",
             "price": 119.99,
             "availability": true,
-            "category": "Speakers"
+            "category": "Speakers",
+            "image": "https://www.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw8c256116/JBL_Flip5_Product%20Photo_Hero_SteelWhite-1605x1605-hero.png?sw=535&sh=535"
         },
         {
             "id": 8,
@@ -70,7 +77,8 @@
             "brand": "Canon",
             "price": 1299.99,
             "availability": true,
-            "category": "Cameras"
+            "category": "Cameras",
+            "image": "https://m.media-amazon.com/images/I/81QKcQmJF7L._AC_UY218_.jpg"
         },
         {
             "id": 9,
@@ -79,7 +87,8 @@
             "brand": "Bose",
             "price": 299.99,
             "availability": true,
-            "category": "Headphones"
+            "category": "Headphones",
+            "image": "https://m.media-amazon.com/images/I/51CHPyFpnoL._AC_UY218_.jpg"
         },
         {
             "id": 10,
@@ -88,7 +97,8 @@
             "brand": "Apple",
             "price": 599.99,
             "availability": true,
-            "category": "Tablets"
+            "category": "Tablets",
+            "image": "https://m.media-amazon.com/images/I/71qzgEZgSIL._AC_UY218_.jpg"
         },
         {
             "id": 11,
@@ -97,7 +107,8 @@
             "brand": "Samsung",
             "price": 1199.99,
             "availability": false,
-            "category": "Smartphones"
+            "category": "Smartphones",
+            "image": "https://m.media-amazon.com/images/I/91SG7i7VqaL._AC_UY218_.jpg"
         },
         {
             "id": 12,
@@ -106,7 +117,8 @@
             "brand": "HP",
             "price": 1299.99,
             "availability": false,
-            "category": "Laptops"
+            "category": "Laptops",
+            "image": "https://m.media-amazon.com/images/I/81zr9PW9YtS._AC_UY218_.jpg"
         },
         {
             "id": 13,
@@ -115,7 +127,8 @@
             "brand": "Bose",
             "price": 299.99,
             "availability": true,
-            "category": "Speakers"
+            "category": "Speakers",
+            "image": "https://assets.bose.com/content/dam/Bose_DAM/Web/consumer_electronics/global/products/speakers/soundlink_revolve_plus_ii/product_silo_images/SoundLink_Revolve_Plus_II_Black_Ecom_1.png/jcr:content/renditions/cq5dam.web.600.600.png"
         },
         {
             "id": 14,
@@ -124,7 +137,8 @@
             "brand": "Sony",
             "price": 399.99,
             "availability": true,
-            "category": "Gaming Consoles"
+            "category": "Gaming Consoles",
+            "image": "https://m.media-amazon.com/images/I/8176J0BnOVL._AC_UY218_.jpg"
         },
         {
             "id": 15,
@@ -133,7 +147,8 @@
             "brand": "Samsung",
             "price": 2499.99,
             "availability": true,
-            "category": "Televisions"
+            "category": "Televisions",
+            "image": "https://m.media-amazon.com/images/I/8153wOcQNML._AC_UY218_.jpg"
         },
         {
             "id": 16,
@@ -142,7 +157,8 @@
             "brand": "Fitbit",
             "price": 229.99,
             "availability": true,
-            "category": "Smartwatches"
+            "category": "Smartwatches",
+            "image": "https://m.media-amazon.com/images/I/61ZXwnqqOuS._AC_UY218_.jpg"
         },
         {
             "id": 17,
@@ -151,7 +167,8 @@
             "brand": "Microsoft",
             "price": 899.99,
             "availability": true,
-            "category": "Tablets"
+            "category": "Tablets",
+            "image": "https://m.media-amazon.com/images/I/61fuJyK5inL._AC_UY218_.jpg"
         },
         {
             "id": 18,
@@ -160,7 +177,8 @@
             "brand": "GoPro",
             "price": 449.99,
             "availability": true,
-            "category": "Cameras"
+            "category": "Cameras",
+            "image": "https://m.media-amazon.com/images/I/41ZRUg5RQxL._AC_UY218_.jpg"
         },
         {
             "id": 19,
@@ -169,7 +187,8 @@
             "brand": "Amazon",
             "price": 49.99,
             "availability": true,
-            "category": "Speakers"
+            "category": "Speakers",
+            "image": "https://m.media-amazon.com/images/I/41FgiLFNhFL._AC_UY218_.jpg"
         },
         {
             "id": 20,
@@ -178,7 +197,8 @@
             "brand": "Nikon",
             "price": 2999.99,
             "availability": true,
-            "category": "Cameras"
+            "category": "Cameras",
+            "image": "https://m.media-amazon.com/images/I/41PfbBJIliL._AC_UY218_.jpg"
         },
         {
             "id": 21,
@@ -187,7 +207,8 @@
             "brand": "Panasonic",
             "price": 1999.99,
             "availability": true,
-            "category": "Cameras"
+            "category": "Cameras",
+            "image": "https://m.media-amazon.com/images/I/61ukhjSR+tL._AC_UY218_.jpg"
         },
         {
             "id": 22,
@@ -196,7 +217,8 @@
             "brand": "Sony",
             "price": 1999.99,
             "availability": true,
-            "category": "Cameras"
+            "category": "Cameras",
+            "image": "https://m.media-amazon.com/images/I/713xBPyXC-L._AC_UY218_.jpg"
         },
         {
             "id": 23,
@@ -205,7 +227,8 @@
             "brand": "Fujifilm",
             "price": 1699.99,
             "availability": true,
-            "category": "Cameras"
+            "category": "Cameras",
+            "image": "https://m.media-amazon.com/images/I/61HE5gO-yuL._AC_UY218_.jpg"
         },
         {
             "id": 24,
@@ -214,7 +237,8 @@
             "brand": "Nikon",
             "price": 1999.99,
             "availability": true,
-            "category": "Cameras"
+            "category": "Cameras",
+            "image": "https://m.media-amazon.com/images/I/91rYykQZ7yL._AC_UY218_.jpg"
         },
         {
             "id": 25,
@@ -223,7 +247,8 @@
             "brand": "Garmin",
             "price": 599.99,
             "availability": true,
-            "category": "Smartwatches"
+            "category": "Smartwatches",
+            "image": "https://m.media-amazon.com/images/I/717br8aKTmL._AC_UY218_.jpg"
         },
         {
             "id": 26,
@@ -232,7 +257,8 @@
             "brand": "Samsung",
             "price": 849.99,
             "availability": true,
-            "category": "Tablets"
+            "category": "Tablets",
+            "image": "https://m.media-amazon.com/images/I/915rA4VNXuL._AC_UY218_.jpg"
         },
         {
             "id": 27,
@@ -241,7 +267,8 @@
             "brand": "Microsoft",
             "price": 499.99,
             "availability": true,
-            "category": "Gaming Consoles"
+            "category": "Gaming Consoles",
+            "image": "https://m.media-amazon.com/images/I/61-jjE67uqL._AC_UY218_.jpg"
         },
         {
             "id": 28,
@@ -250,7 +277,8 @@
             "brand": "Nikon",
             "price": 699.99,
             "availability": true,
-            "category": "Cameras"
+            "category": "Cameras",
+            "image": "https://m.media-amazon.com/images/I/91tkHspL3ZL._AC_UY218_.jpg"
         },
         {
             "id": 29,
@@ -259,16 +287,18 @@
             "brand": "Bose",
             "price": 199.99,
             "availability": true,
-            "category": "Headphones"
+            "category": "Headphones",
+            "image": "https://m.media-amazon.com/images/I/51G45qLluWL._AC_UY218_.jpg"
         },
         {
             "id": 30,
-            "name": "Samsung Galaxy A52",
+            "name": "Samsung Galaxy A34",
             "description": "A mid-range smartphone with a vibrant Super AMOLED display and versatile camera system.",
             "brand": "Samsung",
             "price": 399.99,
             "availability": true,
-            "category": "Smartphones"
+            "category": "Smartphones",
+            "image": "https://m.media-amazon.com/images/I/71o1csyQILL._AC_UY218_.jpg"
         },
         {
             "id": 31,
@@ -277,7 +307,8 @@
             "brand": "LG",
             "price": 3999.99,
             "availability": true,
-            "category": "Televisions"
+            "category": "Televisions",
+            "image": "https://m.media-amazon.com/images/I/61LWRPDmN+L._AC_UY218_.jpg"
         },
         {
             "id": 32,
@@ -286,7 +317,8 @@
             "brand": "Bose",
             "price": 199.99,
             "availability": true,
-            "category": "Headphones"
+            "category": "Headphones",
+            "image": "https://m.media-amazon.com/images/I/51G45qLluWL._AC_UL400_.jpg"
         },
         {
             "id": 33,
@@ -295,7 +327,8 @@
             "brand": "Apple",
             "price": 1299.99,
             "availability": true,
-            "category": "Laptops"
+            "category": "Laptops",
+            "image": "https://m.media-amazon.com/images/I/31t8zcyvapL._SY445_SX342_QL70_FMwebp_.jpg"
         },
         {
             "id": 34,
@@ -304,7 +337,8 @@
             "brand": "Sony",
             "price": 299.99,
             "availability": true,
-            "category": "Headphones"
+            "category": "Headphones",
+            "image": "https://m.media-amazon.com/images/I/51SKmu2G9FL._AC_UY218_.jpg"
         },
         {
             "id": 35,
@@ -313,7 +347,8 @@
             "brand": "Microsoft",
             "price": 179.99,
             "availability": true,
-            "category": "Gaming Consoles"
+            "category": "Gaming Consoles",
+            "image": "https://m.media-amazon.com/images/I/41PKyWWfwsL._AC_UY218_.jpg"
         },
         {
             "id": 36,
@@ -322,7 +357,8 @@
             "brand": "Garmin",
             "price": 699.99,
             "availability": true,
-            "category": "Smartwatches"
+            "category": "Smartwatches",
+            "image": "https://m.media-amazon.com/images/I/41vM5NRh7FL._AC_UY218_.jpg"
         },
         {
             "id": 37,
@@ -331,7 +367,8 @@
             "brand": "JBL",
             "price": 179.99,
             "availability": true,
-            "category": "Speakers"
+            "category": "Speakers",
+            "image": "https://m.media-amazon.com/images/I/81macBettvL._AC_UY218_.jpg"
         },
         {
             "id": 38,
@@ -340,7 +377,8 @@
             "brand": "Samsung",
             "price": 199.99,
             "availability": true,
-            "category": "Headphones"
+            "category": "Headphones",
+            "image": "https://m.media-amazon.com/images/I/61Qqg+T8nsL._AC_UY218_.jpg"
         },
         {
             "id": 39,
@@ -349,7 +387,8 @@
             "brand": "Sony",
             "price": 1999.99,
             "availability": true,
-            "category": "Televisions"
+            "category": "Televisions",
+            "image": "https://m.media-amazon.com/images/I/71ZFyCebfpL._AC_UY218_.jpg"
         },
         {
             "id": 40,
@@ -358,7 +397,8 @@
             "brand": "Fitbit",
             "price": 149.99,
             "availability": true,
-            "category": "Smartwatches"
+            "category": "Smartwatches",
+            "image": "https://m.media-amazon.com/images/I/71pt3VmYV1L._AC_UL400_.jpg"
         },
         {
             "id": 41,
@@ -367,7 +407,8 @@
             "brand": "Microsoft",
             "price": 1299.99,
             "availability": true,
-            "category": "Laptops"
+            "category": "Laptops",
+            "image": "https://m.media-amazon.com/images/I/71p-M3sPhhL._AC_UY218_.jpg"
         },
         {
             "id": 42,
@@ -376,7 +417,8 @@
             "brand": "Bose",
             "price": 99.99,
             "availability": true,
-            "category": "Speakers"
+            "category": "Speakers",
+            "image": "https://m.media-amazon.com/images/I/71jCP8NCxZL._AC_UY218_.jpg"
         },
         {
             "id": 43,
@@ -385,7 +427,8 @@
             "brand": "Canon",
             "price": 3899.99,
             "availability": true,
-            "category": "Cameras"
+            "category": "Cameras",
+            "image": "https://m.media-amazon.com/images/I/81IhXPceDGL._AC_UY218_.jpg"
         },
         {
             "id": 44,
@@ -394,7 +437,8 @@
             "brand": "Beats",
             "price": 349.99,
             "availability": true,
-            "category": "Headphones"
+            "category": "Headphones",
+            "image": "https://m.media-amazon.com/images/I/61BehGyHzHL._AC_UY218_.jpg"
         },
         {
             "id": 45,
@@ -403,7 +447,8 @@
             "brand": "LG",
             "price": 1799.99,
             "availability": true,
-            "category": "Televisions"
+            "category": "Televisions",
+            "image": "https://m.media-amazon.com/images/I/716uL0DAr4L._AC_UY218_.jpg"
         },
         {
             "id": 46,
@@ -412,7 +457,8 @@
             "brand": "Nintendo",
             "price": 199.99,
             "availability": true,
-            "category": "Gaming Consoles"
+            "category": "Gaming Consoles",
+            "image": "https://m.media-amazon.com/images/I/71joGNa6swL._AC_UY218_.jpg"
         },
         {
             "id": 47,
@@ -421,7 +467,8 @@
             "brand": "Garmin",
             "price": 399.99,
             "availability": true,
-            "category": "Smartwatches"
+            "category": "Smartwatches",
+            "image": "https://m.media-amazon.com/images/I/71ummMzf9yL._AC_UY218_.jpg"
         },
         {
             "id": 48,
@@ -430,7 +477,8 @@
             "brand": "JBL",
             "price": 499.99,
             "availability": true,
-            "category": "Speakers"
+            "category": "Speakers",
+            "image": "https://www.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwbaa5da32/JBL_PartyBox_310_Hero_0176_x3.png?sw=535&sh=535"
         },
         {
             "id": 49,
@@ -439,7 +487,8 @@
             "brand": "Nikon",
             "price": 999.99,
             "availability": true,
-            "category": "Cameras"
+            "category": "Cameras",
+            "image": "https://m.media-amazon.com/images/I/51mILmbzr4L._AC_UY218_.jpg"
         },
         {
             "id": 50,
@@ -448,7 +497,8 @@
             "brand": "Bose",
             "price": 129.99,
             "availability": true,
-            "category": "Headphones"
+            "category": "Headphones",
+            "image": "https://m.media-amazon.com/images/I/41mUfY5fSjL._AC_UY218_.jpg"
         }
     ],
     "users": [
@@ -499,6 +549,14 @@
             "phone": "8889990000",
             "email": "user@mail.com",
             "password": "ZXcv!@34"
+        },
+        {
+            "first_name": "demo",
+            "last_name": "last",
+            "email": "demo@mail.com",
+            "phone": 9999999999,
+            "password": "ZXcv!@34",
+            "id": 7
         }
     ]
 }

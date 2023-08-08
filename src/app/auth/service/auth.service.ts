@@ -19,4 +19,16 @@ export class AuthService {
     const id = data.id
     localStorage.setItem('loggedUserId', JSON.stringify(id));
   }
+
+  getUserFromLocal() {
+    return localStorage.getItem('loggedUserId');
+  }
+
+  removeLoggedUser() {
+    return localStorage.removeItem('loggedUserId')
+  }
+
+  registerUser(data: any): Observable<any> {
+    return this.http.post<any>(environment.baseURL + `users`, data);
+  }
 }

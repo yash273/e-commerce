@@ -13,6 +13,12 @@ const routes: Routes = [
     title: 'Home | E-com',
     loadChildren: () =>
       import('./modules/home/home.module').then((m) => m.HomeModule)
+  },
+  {
+    path: 'products',
+    title: 'Products | E-com',
+    loadChildren: () =>
+      import('./modules/products/products.module').then((m) => m.ProductsModule)
   }
 
 ];

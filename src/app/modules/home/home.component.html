@@ -1,2 +1,31 @@
 <app-header></app-header>
-<p>home works!</p>
+<div class="products-div">
+
+    <div *ngFor="let category of getCategories()" class="category-div">
+        <span class="category-title">
+            <span>{{ category }}</span>
+            <button *ngIf="groupedProducts[category].length > 1" mat-raised-button color="primary" (click)="viewMore(category)"> View More</button>
+        </span>
+
+        <div class="product-list">
+            <div *ngFor="let product of groupedProducts[category]" class="product">
+                <mat-card class="product-card">
+                    <mat-card-header (click)="viewProduct(product.id)">
+                        <mat-card-title>{{product.name}}</mat-card-title>
+                        <mat-card-subtitle>From {{product.brand}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <div class="image-container">
+                        <img class="p-image" (click)="viewProduct(product.id)" mat-card-image src={{product.image}} alt={{product.name}}>
+                    </div> <mat-card-content (click)="viewProduct(product.id)">
+                        <h2>{{product.price | currency}}</h2>
+                        <p>{{product.description}}</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-flat-button color="primary">Buy Now</button>
+                        <button mat-flat-button color="accent">Add To Cart</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

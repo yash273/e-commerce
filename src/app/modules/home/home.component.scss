@@ -1,0 +1,8 @@
+.products-div{display: flex;flex-wrap: wrap;justify-content: space-evenly;
+    .category-div{height: fit-content;background-color: bisque; margin: 20px 0;
+        .product-list{display: flex;}
+    }}
+    .product-card {max-width: 400px; margin: 14px;padding: 12px;}
+.category-title{display: flex;align-items: center;justify-content: space-between;margin:20px;
+    span{font-weight: 500;font-size: 30px;line-height: 35px;letter-spacing: normal;}
+}

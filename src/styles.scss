@@ -146,7 +146,6 @@ input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {-webkit-appearance:none;}
-.lang-rtl{direction: rtl;}
 ::-ms-reveal {display: none;}
 
 .mat-mdc-radio-button.mat-primary{
@@ -167,11 +166,36 @@ input[type="search"]::-webkit-search-results-decoration {-webkit-appearance:none
 .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label{top: 24px;}
 .mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label{@include normal-font();letter-spacing: normal;color: var(--theme-label);}
 .mat-mdc-button.mat-mdc-button-base, .mat-mdc-raised-button.mat-mdc-button-base, 
-.mat-mdc-unelevated-button.mat-mdc-button-base, .mat-mdc-outlined-button.mat-mdc-button-base{height: 51px;padding: 15px 30px;}
+// .mat-mdc-unelevated-button.mat-mdc-button-base, .mat-mdc-outlined-button.mat-mdc-button-base{height: 51px;padding: 15px 30px;}
 .mdc-button.mat-mdc-unelevated-button{border-radius: 0;}
 .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {border-bottom-color: var(--theme-border);}
 .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input,.mat-mdc-select-value{color: var(--theme-color);}
 
+
+@mixin normal-font{font-size: 15px;line-height: 18px;font-weight: 400;}
+.login-wrapper{background: var(--white);min-height: 100vh;display: flex;align-items: center;padding-right: 154px;}
+.login-form{max-width: 488px;margin-left: auto;padding: 40px;    background: rgba(255, 255, 255, 0.4);backdrop-filter: blur(7px);border-radius: 10px;@include normal-font();
+  &>img{margin-bottom: 44px;}
+  &>h1{margin-bottom: 6px;}
+  &>h4{margin-bottom: 30px;font-weight: 300;}
+  a{color: #848484;
+    &:hover,&:focus{color:#232323}}
+  p{color: #848484;
+    a{color: var(--primary);font-weight: 700;
+      &:hover,&:focus{color: #002020;}}
+  }
+  .mat-mdc-form-field{margin-bottom: 2px;}
+}
+.login-line{align-items: center;justify-content: space-between;display: flex;margin-bottom: 26px;margin-top: 6px;
+  h5{letter-spacing: normal;}
+}
+
+app-header{position: sticky;top: 0;z-index: 30;}
+.mat-grid-tile .mat-grid-tile-content {justify-content: flex-start;}
+.mat-h3, .mat-subtitle-1, .mat-typography .mat-h3, .mat-typography .mat-subtitle-1, .mat-typography h3{margin: 0;}
+mat-card-actions button:nth-child(n + 2){margin-left: 30px;}
+.p-image{width: 200px;margin: auto;max-width: 100%;height: auto;}
+.image-container{display: flex;height: 360px;}
 
 /*Responsive Media
 ---------------------------------------------------------------------------------------------*/
@@ -187,7 +211,8 @@ input[type="search"]::-webkit-search-results-decoration {-webkit-appearance:none
   @media (max-width:1320px){
     .login-wrapper{padding-right: 60px;}
   
-    .login-form{box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.08);
+    .login-form{
+      // box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.08);
       .mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label{@include normal-font();letter-spacing: normal;color: #232323;}
     .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {border-bottom-color: #232323;}}
   
@@ -195,7 +220,7 @@ input[type="search"]::-webkit-search-results-decoration {-webkit-appearance:none
  
   @media (max-width:991px){
     .login-wrapper{background: var(--white);min-height: 100vh;display: flex;align-items: center;background-position: top left, bottom right;padding: 0;}
-    .login-form{margin-left: auto;margin-right: auto;background: rgba(255, 255, 255, 0.4);backdrop-filter: blur(7px);border-radius: 10px;box-shadow: none;text-align: center;
+    .login-form{margin-left: auto;margin-right: auto;background: rgba(255, 255, 255, 0.4);backdrop-filter: blur(7px);border-radius: 10px;text-align: center;
       .mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label{@include normal-font();letter-spacing: normal;color: var(--theme-label);}
     .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {border-bottom-color: var(--theme-border);}
   
