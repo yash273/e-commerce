@@ -21,6 +21,12 @@ export class AuthService {
   currentUserId$ = this.currentUserSubject.asObservable();
 
   saveUserToLocal(data: any) {
+    if (data.role === 1) {
+      localStorage.setItem('token', 'admin');
+    }
+    if (data.role === 2) {
+      localStorage.setItem('token', 'user');
+    }
     const id = data.id;
     localStorage.setItem('loggedUserId', JSON.stringify(id));
     this.currentUserSubject.next(data.id);
@@ -32,7 +38,8 @@ export class AuthService {
 
   removeLoggedUser() {
     this.currentUserSubject.next(null);
-    return localStorage.removeItem('loggedUserId')
+    localStorage.removeItem('token');
+    return localStorage.removeItem('loggedUserId');
   }
 
   registerUser(data: any): Observable<any> {

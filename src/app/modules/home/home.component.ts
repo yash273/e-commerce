@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from './service/home.service';
 import { Router } from '@angular/router';
+import { CarouselConfig } from 'ngx-bootstrap/carousel';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+
 })
 export class HomeComponent implements OnInit {
 
@@ -29,7 +31,7 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  groupProductsByCategory(products: any, maxProducts = 3) {
+  groupProductsByCategory(products: any, maxProducts = 5) {
     const groupedProducts: any = {};
     products.forEach((product: any) => {
       if (!groupedProducts[product.category]) {

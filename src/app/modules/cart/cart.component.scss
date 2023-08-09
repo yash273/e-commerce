@@ -5,9 +5,11 @@
 .item-image-container {width: 500px;display: flex;}
 .product-image{width: 280px;margin: auto;}
 .top-content{display: flex;}
+.product-card.cart-card { margin: auto; width: 100%; padding: 12px;margin-bottom: 20px;}
 .card-content{width: 100%;}
 .tile-title{margin-left: 50px;}
-.product-card { margin: auto; width: 100%; padding: 12px;}
-.list-section{background-color: rebeccapurple;min-height: calc(100vh - 64px);overflow-y: auto;}
-.total-section{background-color: aqua; width: 100%; max-width: 400px;height: fit-content;}
+.list-section{padding-right: 30px;padding-top: 30px;min-height: calc(100vh - 64px);overflow-y: auto;
+    &:nth-child(n + 2){margin-bottom: 20px;}   
+}
+.total-section{width: 100%; max-width: 400px;height: fit-content;position: sticky;top: 100px;}
 // .total-card{}

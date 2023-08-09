@@ -33,6 +33,15 @@
             </mat-form-field>
 
             <mat-form-field class="w100">
+                <mat-label>Choose your Role</mat-label>
+                <mat-select formControlName="role">
+                    <mat-option value="1">Admin</mat-option>
+                    <mat-option value="2">User</mat-option>
+                </mat-select>
+                <mat-error *ngIf="signUpForm.get('role')?.hasError('required')">This is a Required Field</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w100">
                 <mat-label>Password</mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
                 <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide"

@@ -1,1 +1,16 @@
-<p>sidebar works!</p>
+<nav class="sidebar">
+    <ul class="side-list">
+        <a [routerLink]="'/home'" class="side-link" routerLinkActive="active">
+            <span>Home</span>
+        </a>
+        <a [routerLink]="'/cart'" class="side-link" routerLinkActive="active">
+            <span>Cart</span>
+        </a>
+        <a [routerLink]="'/all-products'" class="side-link" routerLinkActive="active">
+            <span>All Products</span>
+        </a>
+        <!-- <a [routerLink]="'/settings'" class="side-link" routerLinkActive="active">
+            <span>Settings</span>
+        </a> -->
+    </ul>
+</nav>

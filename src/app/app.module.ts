@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AuthInterceptor } from 'src/shared/services/auth.interceptor';
-
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +18,7 @@ import { AuthInterceptor } from 'src/shared/services/auth.interceptor';
     BrowserAnimationsModule,
     HttpClientModule,
     NgxSpinnerModule,
+    CarouselModule.forRoot()
   ],
   providers: [
     {

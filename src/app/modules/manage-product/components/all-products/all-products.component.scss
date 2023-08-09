@@ -1,0 +1,13 @@
+.contents{max-width: 1600px; width: 100%;margin: auto;display: flex;flex-wrap: wrap;justify-content: center;}
+.product-container{display: flex;min-height: calc(100vh - 64px);}
+.list-image{max-width: 100px;max-height: 100px;}
+.table-card{    margin: auto;width: 100%; max-width: 1000px;position: relative;}
+.responsive-table{overflow-y: auto;max-height: 600px;}
+th{ background-color: beige !important; color: indigo; font-size: 20px;}
+table th.mat-mdc-header-cell,table td.mat-mdc-cell,table td.mat-mdc-footer-cell{padding: 0 26px;}
+table th.mat-mdc-column-Action.mat-mdc-header-cell{padding: 0 40px;}
+.mat-mdc-table{width: 100%;white-space: nowrap;}
+tr.mat-mdc-row:hover {background: whitesmoke;}
+.table-row{height: 100px;}
+.mdc-data-table__cell ,.mdc-data-table__header-cell{box-sizing: border-box;overflow: hidden;text-align: center;text-overflow: ellipsis;vertical-align: middle;}
+.add-button{width: fit-content;position: absolute;top: -50px;right: 0;}

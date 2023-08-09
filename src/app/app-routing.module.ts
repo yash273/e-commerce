@@ -25,6 +25,12 @@ const routes: Routes = [
     title: 'My Cart | E-com',
     loadChildren: () =>
       import('./modules/cart/cart.module').then((m) => m.CartModule)
+  },
+  {
+    path: 'all-products',
+    title: 'All Products | E-com',
+    loadChildren: () =>
+      import('./modules/manage-product/manage-product.module').then((m) => m.ManageProductModule)
   }
 
 ];

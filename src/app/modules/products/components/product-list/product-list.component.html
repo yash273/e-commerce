@@ -1,27 +1,39 @@
-<app-header></app-header>
-
-<div class="product-container">
-    <div class="contents">
-        <ng-container *ngFor="let product of products">
-            <mat-card class="product-card">
-                <mat-card-header (click)="viewProduct(product.id)">
-                    <mat-card-title>{{product.name}}</mat-card-title>
-                    <mat-card-subtitle>From {{product.brand}}</mat-card-subtitle>
-                </mat-card-header>
-                <div class="image-container">
-                    <img class="p-image" (click)="viewProduct(product.id)" mat-card-image src={{product.image}} alt={{product.name}}>
-                </div>
-                <mat-card-content (click)="viewProduct(product.id)">
-                    <p>
-                        {{product.description}}
-                    </p>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button mat-flat-button color="primary">Buy Now</button>
-                    <button mat-flat-button color="accent">Add To Cart</button>
-                </mat-card-actions>
-            </mat-card>
-
-        </ng-container>
-    </div>
+<div class="top-container">
+    <button mat-icon-button color="accent" (click)="drawer.toggle()" class="close-button">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <app-header></app-header>
 </div>
+<mat-drawer-container class="example-container" autosize>
+
+    <mat-drawer #drawer class="sidenav" mode="side" opened>
+
+        <app-sidebar></app-sidebar>
+
+    </mat-drawer>
+    <div class="product-container">
+        <div class="contents">
+            <ng-container *ngFor="let product of products">
+                <mat-card class="product-card">
+                    <mat-card-header (click)="viewProduct(product.id)">
+                        <mat-card-title>{{product.name}}</mat-card-title>
+                        <mat-card-subtitle>From {{product.brand}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <div class="image-container">
+                        <img class="p-image" (click)="viewProduct(product.id)" mat-card-image src={{product.image}} alt={{product.name}}>
+                    </div>
+                    <mat-card-content (click)="viewProduct(product.id)">
+                        <p>
+                            {{product.description}}
+                        </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-flat-button color="primary">Buy Now</button>
+                        <button mat-flat-button color="accent">Add To Cart</button>
+                    </mat-card-actions>
+                </mat-card>
+
+            </ng-container>
+        </div>
+    </div>
+</mat-drawer-container>

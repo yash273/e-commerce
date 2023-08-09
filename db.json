@@ -507,6 +507,7 @@
             "first_name": "John",
             "last_name": "Doe",
             "phone": "1234567890",
+            "role": 2,
             "email": "johndoe@example.com",
             "password": "securepassword123"
         },
@@ -515,6 +516,7 @@
             "first_name": "Jane",
             "last_name": "Smith",
             "phone": "9876543210",
+            "role": 2,
             "email": "janesmith@example.com",
             "password": "strongpass456"
         },
@@ -523,6 +525,7 @@
             "first_name": "Michael",
             "last_name": "Johnson",
             "phone": "5554443333",
+            "role": 2,
             "email": "michaeljohnson@example.com",
             "password": "secretword789"
         },
@@ -531,6 +534,7 @@
             "first_name": "Emily",
             "last_name": "Williams",
             "phone": "1112223333",
+            "role": 2,
             "email": "emilywilliams@example.com",
             "password": "mypassword987"
         },
@@ -539,6 +543,7 @@
             "first_name": "David",
             "last_name": "Brown",
             "phone": "8889990000",
+            "role": 2,
             "email": "davidbrown@example.com",
             "password": "secure123pass"
         },
@@ -547,6 +552,7 @@
             "first_name": "David",
             "last_name": "Brown",
             "phone": "8889990000",
+            "role": 2,
             "email": "user@mail.com",
             "password": "ZXcv!@34"
         },
@@ -556,7 +562,24 @@
             "email": "demo@mail.com",
             "phone": 9999999999,
             "password": "ZXcv!@34",
-            "id": 7
+            "id": 7,
+            "role": 1,
+            "cart": {
+                "products": [
+                    {
+                        "id": 1,
+                        "quantity": 2
+                    },
+                    {
+                        "id": 2,
+                        "quantity": 3
+                    },
+                    {
+                        "id": 3,
+                        "quantity": 1
+                    }
+                ]
+            }
         }
     ]
 }

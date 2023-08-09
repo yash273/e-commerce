@@ -5,7 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { SharedModule } from 'src/shared/shared.module';
 import { MaterialModule } from 'src/shared/modules/material.module';
-
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,9 @@ import { MaterialModule } from 'src/shared/modules/material.module';
     CommonModule,
     HomeRoutingModule,
     SharedModule,
-    MaterialModule
+    MaterialModule,
+    CarouselModule.forRoot()
+
   ]
 })
 export class HomeModule { }
