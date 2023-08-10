@@ -3,9 +3,13 @@
 
         <span class="header-title" [routerLink]="'/home'">logo here</span>
 
+        <div class="navigation-buttons">
+            <button mat-icon-button  class="back-button" matTooltip="Go to Previous Page"  (click)="goBack()"><mat-icon>arrow_back</mat-icon></button>
+        </div>
+
         <span class="example-spacer"></span>
         <button mat-icon-button (click)="goToCart()">
-            <mat-icon>shopping_cart</mat-icon>
+            <mat-icon [matBadge]="cartItemCount" matBadgeColor="accent">shopping_cart</mat-icon>
         </button>
         <button mat-button [matMenuTriggerFor]="menu">
             <span> Hi, {{currentUser?.first_name}}</span>

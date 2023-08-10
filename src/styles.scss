@@ -198,13 +198,16 @@ mat-card-actions button:nth-child(n + 2){margin-left: 30px;}
 .image-container{display: flex;height: 360px;}
 
 .close-button{position: absolute !important;top: 8px;z-index: 31 !important; left:8px}
+// .navigation-buttons{position: absolute !important;top: 8px;z-index: 31 !important;}
 .top-container{display: flex;position: sticky;top: 0;right: 0;z-index: 1000;}
 app-header{width: 100%;}
 .mat-drawer.mat-drawer-side{position: fixed;top: 65px   ;}
 .carousel-control-prev-icon{background-image: url(https://cdn-icons-png.flaticon.com/512/318/318276.png);}
 .carousel-control-next-icon{background-image: url(https://cdn-icons-png.flaticon.com/512/54/54661.png);}
 .carousel-control-next, .carousel-control-prev{width: 10%;}
-
+// .sidenav{position: relative;
+//   .navigation-buttons{position: absolute;z-index: 30;}
+// }
 /*Responsive Media
 ---------------------------------------------------------------------------------------------*/
 @media (min-width:1561px){

@@ -12,6 +12,7 @@ import { CarouselConfig } from 'ngx-bootstrap/carousel';
 export class HomeComponent implements OnInit {
 
   products: any;
+  route = 'home'
   groupedProducts: { [category: string]: any[] } = {};
 
   constructor(
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit {
     this.homeService.getAllProducts().subscribe((res) => {
       this.products = res;
 
-      this.groupedProducts = this.groupProductsByCategory(res);
+      this.groupedProducts = this.groupProductsByCategory(this.products);
 
     })
   }
@@ -57,4 +58,5 @@ export class HomeComponent implements OnInit {
   viewProduct(productId: number) {
     this.router.navigate([`products/item/${productId}`])
   }
+
 }

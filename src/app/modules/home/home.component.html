@@ -2,51 +2,73 @@
     <button mat-icon-button color="accent" (click)="drawer.toggle()" class="close-button">
         <mat-icon>menu</mat-icon>
     </button>
+    
     <app-header></app-header>
 </div>
 <mat-drawer-container class="example-container" autosize>
 
     <mat-drawer #drawer class="sidenav" mode="side" opened>
-
+       
         <app-sidebar></app-sidebar>
 
     </mat-drawer>
     <div class="products-div">
         <div class="contents">
 
-
             <div *ngFor="let category of getCategories()" class="category-div">
                 <span class="category-title">
                     <span>{{ category }}</span>
+
                     <button *ngIf="groupedProducts[category].length > 1" mat-raised-button color="primary" (click)="viewMore(category)"> View
                         More</button>
                 </span>
 
                 <div class="product-list">
-                    <carousel [interval]="1500" [isAnimated]="true" [itemsPerSlide]="3" [singleSlideOffset]="true" [startFromIndex]="0"
-                        [showIndicators]="false">
+                    <ng-container *ngIf="groupedProducts[category].length >= 3">
+                        <carousel [interval]="0" [isAnimated]="true" [itemsPerSlide]="3" [singleSlideOffset]="true" [startFromIndex]="0"
+                            [showIndicators]="false">
 
-                        <slide *ngFor="let product of groupedProducts[category]" class="product">
-                            <mat-card class="product-card">
-                                <mat-card-header (click)="viewProduct(product.id)">
-                                    <mat-card-title>{{product.name | truncate : 35}}</mat-card-title>
-                                    <mat-card-subtitle>From {{product.brand}}</mat-card-subtitle>
-                                </mat-card-header>
-                                <div class="image-container">
-                                    <img class="p-image" (click)="viewProduct(product.id)" mat-card-image src={{product.image}} alt={{product.name}}>
-                                </div> <mat-card-content (click)="viewProduct(product.id)">
-                                    <h2>{{product.price | currency}}</h2>
-                                    <p>{{product.description | truncate : 100}}</p>
-                                </mat-card-content>
-                                <mat-card-actions>
-                                    <button mat-flat-button color="primary">Buy Now</button>
-                                    <button mat-flat-button color="accent">Add To Cart</button>
-                                </mat-card-actions>
-                            </mat-card>
-                        </slide>
+                            <slide *ngFor="let product of groupedProducts[category]" class="product">
+                                <mat-card class="product-card">
+                                    <mat-card-header (click)="viewProduct(product.id)">
+                                        <mat-card-title>{{product.name | truncate : 35}}</mat-card-title>
+                                        <mat-card-subtitle>From {{product.brand}}</mat-card-subtitle>
+                                    </mat-card-header>
+                                    <div class="image-container">
+                                        <img class="p-image" (click)="viewProduct(product.id)" mat-card-image [src]='product.images[0].url'
+                                            alt={{product.name}}>
+                                    </div> <mat-card-content (click)="viewProduct(product.id)">
+                                        <h2>{{product.price | currency}}</h2>
+                                        <p>{{product.description | truncate : 100}}</p>
+                                    </mat-card-content>
+                                    <!-- <mat-card-actions>
+                                        <button mat-flat-button color="primary">Buy Now</button>
+                                        <button mat-flat-button color="accent" (click)="addToCart(product.id)">Add To Cart</button>
+                                    </mat-card-actions> -->
+                                </mat-card>
+                            </slide>
 
-                    </carousel>
-
+                        </carousel>
+                    </ng-container>
+                    <ng-container *ngIf="groupedProducts[category].length < 3">
+                        <mat-card class="product-card" *ngFor="let product of groupedProducts[category]">
+                            <mat-card-header (click)="viewProduct(product.id)">
+                                <mat-card-title>{{product.name | truncate : 35}}</mat-card-title>
+                                <mat-card-subtitle>From {{product.brand}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <div class="image-container">
+                                <img class="p-image" (click)="viewProduct(product.id)" mat-card-image [src]='product.images[0].url'
+                                    alt={{product.name}}>
+                            </div> <mat-card-content (click)="viewProduct(product.id)">
+                                <h2>{{product.price | currency}}</h2>
+                                <p>{{product.description | truncate : 100}}</p>
+                            </mat-card-content>
+                            <!-- <mat-card-actions>
+                                <button mat-flat-button color="primary">Buy Now</button>
+                                <button mat-flat-button color="accent">Add To Cart</button>
+                            </mat-card-actions> -->
+                        </mat-card>
+                    </ng-container>
                 </div>
 
             </div>

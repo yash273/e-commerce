@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/service/auth.service';
+import { CartService } from 'src/app/modules/cart/service/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -11,11 +12,17 @@ import { AuthService } from 'src/app/auth/service/auth.service';
 export class HeaderComponent implements OnInit {
   currentUserId !: number;
   currentUser: any;
+  cartItemCount!: number;
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private cartService: CartService
   ) {
+  }
+
+  goBack() {
+    window.history.back();
   }
 
   ngOnInit(): void {
@@ -25,6 +32,9 @@ export class HeaderComponent implements OnInit {
         this.currentUser = result
       })
     });
+    this.cartService.cart$.subscribe((res) => {
+      this.cartItemCount = res.length;
+    })
 
   }
   logOut() {

@@ -17,4 +17,16 @@ export class ManageProductService {
         `products?_page=${page}&_limit=${limit}`
       )
   }
+
+  saveProduct(data: any) {
+    return this.http.post(environment.baseURL + `products`, data);
+  }
+
+  getProductById(productId: number) {
+    return this.http.get(environment.baseURL + `products/${productId}`);
+  }
+
+  updateProduct(data: any, productId: number) {
+    return this.http.put(environment.baseURL + `products/${productId}`, data);
+  }
 }

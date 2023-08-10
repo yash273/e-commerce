@@ -7,10 +7,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
+
   constructor(
     private http: HttpClient
   ) {
-    console.log(this.getUserFromLocal())
   }
 
   getAllUsers(): Observable<any> {
@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   removeLoggedUser() {
-    this.currentUserSubject.next(null);
+    // this.currentUserSubject.next(null);
     localStorage.removeItem('token');
     return localStorage.removeItem('loggedUserId');
   }
@@ -48,6 +48,10 @@ export class AuthService {
 
   getUserDataById(userId: number) {
     return this.http.get(environment.baseURL + `users/${userId}`)
+  }
+
+  updateUser(userId: number, data: any){
+    return this.http.put(environment.baseURL + `users/${userId}`, data);
   }
 
 }

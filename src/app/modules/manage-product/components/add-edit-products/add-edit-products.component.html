@@ -17,7 +17,8 @@
 
                 <mat-card class="user-card">
                     <mat-card-header>
-                        <mat-card-title>Add Product</mat-card-title>
+                        <mat-card-title *ngIf="!productId">Add Product</mat-card-title>
+                        <mat-card-title *ngIf="productId">Update Product</mat-card-title>
                         <mat-card-subtitle>Enter All data</mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-content>
@@ -69,13 +70,14 @@
                 <mat-card class="image-card">
                     <mat-card-content>
 
-                        <span class="w100">
-
-                            <mat-label>Product Images</mat-label>
+                        <span class="file-upload-span">
                             <input style="display: none" id="imageInput" type="file" (change)="handleImageInput($event)" accept="image/*" multiple>
-                            <label for="imageInput" class="file-input-label">
-                                Upload Images
-                            </label>
+
+                            <button type="button" mat-flat-button color="primary" style="cursor:pointer">
+                                <label for="imageInput">
+                                    Upload Product Images
+                                </label>
+                            </button>
                             <mat-error *ngIf="productForm.get('images')?.hasError('required')">This is a Required Field</mat-error>
 
                         </span>
@@ -91,7 +93,8 @@
                     </mat-card-content>
 
                     <mat-card-actions>
-                        <button mat-flat-button color="primary" type="submit" (click)="saveProduct()">Save</button>
+                        <button mat-flat-button *ngIf="!productId" color="primary" type="submit" (click)="saveProduct()">Save</button>
+                        <button mat-flat-button *ngIf="productId" color="primary" type="submit" (click)="updateProduct()">Update</button>
                         <button mat-flat-button color="warn" type="button">Cancel</button>
                     </mat-card-actions>
                 </mat-card>

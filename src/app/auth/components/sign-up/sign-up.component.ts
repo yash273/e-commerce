@@ -57,6 +57,8 @@ export class SignUpComponent {
     if (this.signUpForm.valid) {
       const formData = { ...this.signUpForm.value };
       delete formData.confirm_password;
+      formData.cart = [];
+      
       formData.phone = parseInt(formData.phone, 10);
 
       this.authService.registerUser(formData).subscribe((res) => {

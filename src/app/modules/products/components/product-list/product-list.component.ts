@@ -11,6 +11,8 @@ export class ProductListComponent implements OnInit {
 
   category: any;
   products: any;
+  productImages: any
+  selectedImage: string = '';
 
   constructor(
     private router: Router,

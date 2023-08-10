@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../service/product.service';
+import { CartService } from 'src/app/modules/cart/service/cart.service';
+import { AuthService } from 'src/app/auth/service/auth.service';
 
 @Component({
   selector: 'app-product-info',
@@ -10,18 +12,32 @@ import { ProductService } from '../../service/product.service';
 export class ProductInfoComponent implements OnInit {
 
   productId!: number;
-  item: any
+  item: any;
+  productImages: any
+  selectedImage: string = '';
 
   constructor(
-    private router: Router,
     private route: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    private authService: AuthService,
+    private cartService: CartService
   ) { }
 
   ngOnInit(): void {
     this.productId = this.route.snapshot.params['id'];
     this.productService.getProductDataById(this.productId).subscribe((res) => {
-      this.item = res
+      this.item = res;
+      this.productImages = this.item.images;
+      this.selectedImage = this.productImages[0].url;
     })
+  }
+
+  showFullImage(imageUrl: string) {
+    this.selectedImage = imageUrl;
+  }
+
+  userId !: number;
+  addToCart(productId: number){
+    this.cartService.addToCart(productId);
   }
 }

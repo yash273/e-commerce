@@ -7,3 +7,9 @@
 .product-card {max-width: calc(100vw - 100px); margin: auto; width: 100%; padding: 12px;}
 .product-container{display: flex;min-height: calc(100vh - 64px);}
 .contents{max-width: 1600px; width: 100%;margin: auto;display: flex;}
+.images{max-width: 100%;height: auto;}
+.image-div{position: relative; width: 100px;height: fit-content;border:1.5px solid blueviolet;border-radius: 5px;}
+.mini-images-section{display: flex;flex-direction: column;max-height: 500px;width: 200px;overflow-x: hidden;overflow-y: auto;align-items: center;justify-content: center;}
+.main-image-container {margin: 20px; width: 500px; }
+.main-image {max-width: 100%;border: 2px solid #ddd;height: auto;}
+.image-container{display: flex;align-items:center;}

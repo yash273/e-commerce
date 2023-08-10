@@ -16,9 +16,22 @@
             <mat-card class="product-card">
 
                 <div class="top-content">
-                    <div class="item-image-container">
-                        <img class="product-image" mat-card-image src={{item?.image}} alt={{item?.name}}>
+
+                    <div class="mini-images-section">
+                        <ng-container *ngFor="let image of productImages; let i= index">
+                            <div class="image-div">
+                                <img class="images" (mouseenter)="showFullImage(image?.url)" mat-card-image src={{image?.url}} alt="{{i}}-th Image">
+                            </div>
+                        </ng-container>
                     </div>
+                    <div class="main-image-container">
+                        <div class="image-container">
+                            <img [src]="selectedImage" alt="Product Image" class="main-image">
+                        </div>
+                    </div>
+                    <!-- <div class="item-image-container">
+                        <img class="product-image" mat-card-image src={{item?.image}} alt={{item?.name}}>
+                    </div> -->
 
                     <mat-card-content class="card-content">
                         <mat-card-header>
@@ -29,35 +42,37 @@
 
                         <mat-grid-list cols="4" rowHeight="60px">
                             <mat-grid-tile colspan="1" class="tile-title">
-                                <!-- <mat-icon>description</mat-icon> -->
                                 <h3>Description</h3>
                             </mat-grid-tile>
                             <mat-grid-tile colspan="3" class="tile-about">
                                 {{item?.description}}</mat-grid-tile>
                             <mat-grid-tile colspan="1" class="tile-title">
-                                <!-- <mat-icon> category</mat-icon> -->
                                 <h3>Category</h3>
                             </mat-grid-tile>
                             <mat-grid-tile colspan="3" class="tile-about">
                                 {{item?.category}}</mat-grid-tile>
                             <mat-grid-tile colspan="1" class="tile-title">
-                                <!-- <mat-icon> contacts</mat-icon> -->
                                 <h3>Brand</h3>
                             </mat-grid-tile>
                             <mat-grid-tile colspan="3" class="tile-about">
                                 {{item?.brand}}</mat-grid-tile>
                             <mat-grid-tile colspan="1" class="tile-title">
-                                <!-- <mat-icon> monetization_on</mat-icon> -->
                                 <h3>Price</h3>
                             </mat-grid-tile>
                             <mat-grid-tile colspan="3" class="tile-about">
                                 <h2>{{item?.price | currency}}</h2>
                             </mat-grid-tile>
+                            <mat-grid-tile colspan="1" class="tile-title">
+                                <h3>Sold By</h3>
+                            </mat-grid-tile>
+                            <mat-grid-tile colspan="3" class="tile-about">
+                                {{item?.sold_by}}
+                            </mat-grid-tile>
                         </mat-grid-list>
 
                         <mat-card-actions>
                             <button mat-flat-button color="primary">Buy Now</button>
-                            <button mat-flat-button color="accent">Add To Cart</button>
+                            <button mat-flat-button color="accent" (click)="addToCart(item.id)">Add To Cart</button>
                         </mat-card-actions>
                     </mat-card-content>
                 </div>
