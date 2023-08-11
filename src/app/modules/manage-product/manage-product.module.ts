@@ -8,6 +8,7 @@ import { MaterialModule } from 'src/shared/modules/material.module';
 import { SharedModule } from 'src/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CartService } from '../cart/service/cart.service';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     RouterModule
 
-  ]
+  ],
+  providers: [CartService]
 })
 export class ManageProductModule { }

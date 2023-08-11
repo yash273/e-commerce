@@ -2,13 +2,13 @@
     <button mat-icon-button color="accent" (click)="drawer.toggle()" class="close-button">
         <mat-icon>menu</mat-icon>
     </button>
-    
+
     <app-header></app-header>
 </div>
 <mat-drawer-container class="example-container" autosize>
 
     <mat-drawer #drawer class="sidenav" mode="side" opened>
-       
+
         <app-sidebar></app-sidebar>
 
     </mat-drawer>
@@ -25,7 +25,7 @@
 
                 <div class="product-list">
                     <ng-container *ngIf="groupedProducts[category].length >= 3">
-                        <carousel [interval]="0" [isAnimated]="true" [itemsPerSlide]="3" [singleSlideOffset]="true" [startFromIndex]="0"
+                        <carousel [interval]="1500" [isAnimated]="true" [itemsPerSlide]="3" [singleSlideOffset]="true" [startFromIndex]="0"
                             [showIndicators]="false">
 
                             <slide *ngFor="let product of groupedProducts[category]" class="product">

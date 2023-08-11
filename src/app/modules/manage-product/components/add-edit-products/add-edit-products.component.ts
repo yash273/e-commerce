@@ -4,6 +4,7 @@ import { category } from 'src/shared/constants/category';
 import { price } from 'src/shared/constants/regex-rule';
 import { ManageProductService } from '../../service/manage-product.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SharedService } from 'src/shared/services/shared.service';
 
 @Component({
   selector: 'app-add-edit-products',
@@ -21,7 +22,8 @@ export class AddEditProductsComponent implements OnInit {
     private formBuilder: FormBuilder,
     private manageProductService: ManageProductService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private sharedService: SharedService
   ) {
 
   }
@@ -29,7 +31,6 @@ export class AddEditProductsComponent implements OnInit {
   ngOnInit(): void {
     this.createForm();
     this.productId = this.route.snapshot.params['id'];
-    console.log(this.productId);
     this.populateForm();
   }
 
@@ -59,11 +60,20 @@ export class AddEditProductsComponent implements OnInit {
     if (this.productForm.valid) {
       const formData = { ...this.productForm.value };
       formData.price = Number(formData.price);
-      this.manageProductService.saveProduct(formData).subscribe((res) => {
-        if (res) {
-          console.log("product added")
+      this.manageProductService.saveProduct(formData).subscribe(
+        (res) => {
+          if (res) {
+            this.sharedService.showAlert("product added", "success");
+            this.router.navigate(['/all-products']);
+          }
+        },
+        (error) => {
+          this.sharedService.showAlert("Error in adding product ", "error");
+          console.error(error);
         }
-      });
+      );
+    } else {
+      this.sharedService.showAlert("Form is invalid. Please check the fields.", "error");
     }
   }
 
@@ -71,15 +81,21 @@ export class AddEditProductsComponent implements OnInit {
     if (this.productForm.valid) {
       const formData = { ...this.productForm.value };
       formData.price = Number(formData.price);
-      this.manageProductService.updateProduct(formData, this.productId).subscribe((res) => {
-        if (res) {
-          console.log("product Updated");
-          this.router.navigate(['/all-products'])
-        }
-      });
+      this.manageProductService.updateProduct(formData, this.productId).subscribe(
+        (res) => {
+          if (res) {
+            this.sharedService.showAlert("product updated", "success");
+            this.router.navigate(['/all-products']);
+          }
+        },
+        (error) => {
+          this.sharedService.showAlert("Error in Updating product ", "error");
+          console.error(error);
+        });
+    } else {
+      this.sharedService.showAlert("Form is invalid. Please check the fields.", "error");
     }
   }
-
 
   handleImageInput(event: any) {
     const files = event.target.files;

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/service/auth.service';
 import { CartService } from 'src/app/modules/cart/service/cart.service';
+import { SharedService } from 'src/shared/services/shared.service';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,7 @@ import { CartService } from 'src/app/modules/cart/service/cart.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
   currentUserId !: number;
   currentUser: any;
   cartItemCount!: number;
@@ -17,7 +19,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private cartService: CartService
+    private cartService: CartService,
+    private sharedService: SharedService
   ) {
   }
 
@@ -26,6 +29,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.cartService.cart();
     this.authService.currentUserId$.subscribe((res) => {
       this.currentUserId = res;
       this.authService.getUserDataById(res).subscribe((result) => {
@@ -38,9 +42,17 @@ export class HeaderComponent implements OnInit {
 
   }
   logOut() {
-    this.authService.removeLoggedUser();
-    console.log('Successfully Logged out')
-    this.router.navigate(['/login']);
+
+    const dialogRef = this.sharedService.openDeleteDialog("Do You Really Want To Log Out?", "Attention!");
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.authService.removeLoggedUser();
+        this.sharedService.showAlert('Successfully Logged out', "success")
+        this.router.navigate(['/login']);
+      }
+    })
+
   }
   goToCart() {
     this.router.navigate(['/cart']);

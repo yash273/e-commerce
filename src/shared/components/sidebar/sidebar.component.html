@@ -6,7 +6,7 @@
         <a [routerLink]="'/cart'" class="side-link" routerLinkActive="active">
             <span>Cart</span>
         </a>
-        <a [routerLink]="'/all-products'" class="side-link" routerLinkActive="active">
+        <a *ngIf="token == 'admin'" [routerLink]="'/all-products'" class="side-link" routerLinkActive="active">
             <span>All Products</span>
         </a>
         <!-- <a [routerLink]="'/settings'" class="side-link" routerLinkActive="active">

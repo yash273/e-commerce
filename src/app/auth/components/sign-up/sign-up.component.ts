@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../service/auth.service';
 import { name, email, mob, pass } from 'src/shared/constants/regex-rule';
+import { SharedService } from 'src/shared/services/shared.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -19,6 +20,7 @@ export class SignUpComponent {
     private formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService,
+    private sharedService: SharedService
   ) {
 
   }
@@ -58,19 +60,19 @@ export class SignUpComponent {
       const formData = { ...this.signUpForm.value };
       delete formData.confirm_password;
       formData.cart = [];
-      
+
       formData.phone = parseInt(formData.phone, 10);
 
       this.authService.registerUser(formData).subscribe((res) => {
         if (res) {
-          console.log("Congratulations! You Are Registered!");
+          this.sharedService.showAlert("Congratulations! You Are Registered!", "success");
           this.router.navigate(['/login'])
         } else {
-          console.log("Oops! Something Went Wrong!");
+          this.sharedService.showAlert("Oops! Something Went Wrong!", "error");
         }
       });
     } else {
-      console.log("Form is invalid. Please check the fields.");
+      this.sharedService.showAlert("Form is invalid. Please check the fields.", "error");
     }
   }
 }

@@ -533,7 +533,8 @@
       "phone": "1234567890",
       "role": 2,
       "email": "johndoe@example.com",
-      "password": "securepassword123"
+      "password": "securepassword123",
+      "cart": []
     },
     {
       "id": 2,
@@ -542,7 +543,8 @@
       "phone": "9876543210",
       "role": 2,
       "email": "janesmith@example.com",
-      "password": "strongpass456"
+      "password": "strongpass456",
+      "cart": []
     },
     {
       "id": 3,
@@ -551,7 +553,8 @@
       "phone": "5554443333",
       "role": 2,
       "email": "michaeljohnson@example.com",
-      "password": "secretword789"
+      "password": "secretword789",
+      "cart": []
     },
     {
       "id": 4,
@@ -560,7 +563,8 @@
       "phone": "1112223333",
       "role": 2,
       "email": "emilywilliams@example.com",
-      "password": "mypassword987"
+      "password": "mypassword987",
+      "cart": []
     },
     {
       "id": 5,
@@ -569,7 +573,8 @@
       "phone": "8889990000",
       "role": 2,
       "email": "davidbrown@example.com",
-      "password": "secure123pass"
+      "password": "secure123pass",
+      "cart": []
     },
     {
       "id": 6,
@@ -581,19 +586,15 @@
       "password": "ZXcv!@34",
       "cart": [
         {
-          "product_id": 9,
-          "quantity": 1
-        },
-        {
-          "product_id": 1,
-          "quantity": 1
-        },
-        {
           "product_id": 12,
           "quantity": 1
         },
         {
-          "product_id": 4,
+          "product_id": 11,
+          "quantity": 1
+        },
+        {
+          "product_id": 13,
           "quantity": 1
         }
       ]
@@ -605,7 +606,25 @@
       "phone": 9999999999,
       "password": "ZXcv!@34",
       "id": 7,
-      "role": 1
+      "role": 1,
+      "cart": [
+        {
+          "product_id": 11,
+          "quantity": 1
+        },
+        {
+          "product_id": 1,
+          "quantity": 3
+        },
+        {
+          "product_id": 14,
+          "quantity": 1
+        },
+        {
+          "product_id": 15,
+          "quantity": 1
+        }
+      ]
     },
     {
       "first_name": "user",

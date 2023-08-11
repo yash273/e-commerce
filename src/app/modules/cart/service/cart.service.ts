@@ -1,8 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, switchMap } from 'rxjs';
 import { AuthService } from 'src/app/auth/service/auth.service';
-import { environment } from 'src/environments/environment';
+import { SharedService } from 'src/shared/services/shared.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +13,12 @@ export class CartService {
 
   constructor(
     private authService: AuthService,
-    private http: HttpClient
+    private sharedService: SharedService
   ) {
+    this.cart();
+  }
+
+  cart() {
     this.authService.currentUserId$
       .pipe(
         switchMap(userId => this.authService.getUserDataById(userId))
@@ -28,7 +31,6 @@ export class CartService {
   userId !: number;
 
   addToCart(productId: number) {
-    const cart = this.cartSubject.value;
 
     this.authService.currentUserId$.subscribe((res) => {
       this.userId = res;
@@ -39,7 +41,6 @@ export class CartService {
 
           if (existingCartItem) {
             existingCartItem.quantity++;
-            console.log('Product is already in the cart.');
           } else {
             user.cart.push(
               {
@@ -48,34 +49,24 @@ export class CartService {
               }
             );
           }
-
           this.authService.updateUser(this.userId, user).subscribe(
             (res) => {
-              console.log('Product added to cart');
+              this.sharedService.showAlert("Product added to cart.", 'success')
               this.cartSubject.next([...user.cart]);
             },
             (error) => {
-              console.error('Error adding product to cart:', error);
+              this.sharedService.showAlert("Error adding product to cart.", 'success')
+              console.error(error);
             }
           );
         },
         (error) => {
-          console.error('Error fetching user data:', error);
+          this.sharedService.showAlert("Error fetching user data.", 'success')
+          console.error(error);
         }
       );
     });
   }
-
-
-
-  userData: any;
-  userCart: any;
-
-
-
-
-
-
 
 }
 

@@ -95,7 +95,7 @@
                     <mat-card-actions>
                         <button mat-flat-button *ngIf="!productId" color="primary" type="submit" (click)="saveProduct()">Save</button>
                         <button mat-flat-button *ngIf="productId" color="primary" type="submit" (click)="updateProduct()">Update</button>
-                        <button mat-flat-button color="warn" type="button">Cancel</button>
+                        <button mat-flat-button color="warn" type="button" routerLink="/all-products">Cancel</button>
                     </mat-card-actions>
                 </mat-card>
             </form>

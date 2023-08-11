@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/service/auth.service';
 import { ManageProductService } from '../manage-product/service/manage-product.service';
 import { CartService } from './service/cart.service';
+import { DeleteComponent } from 'src/shared/components/delete/delete.component';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { SharedService } from 'src/shared/services/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -20,7 +24,9 @@ export class CartComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private productService: ManageProductService,
-    private cartService: CartService
+    private cartService: CartService,
+    private sharedService: SharedService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -28,7 +34,6 @@ export class CartComponent implements OnInit {
       this.userId = res;
     });
     this.cartData();
-
   }
 
   cartData() {
@@ -58,12 +63,34 @@ export class CartComponent implements OnInit {
         },
       )
     }
-
-    console.log(this.cartItemsWithDetails)
   }
 
   removeFromCart(productId: number) {
 
+    const dialogRef = this.sharedService.openDeleteDialog("Do You Really Want To Delete The Item?", "Delete Item From Cart!");
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.deleteItemFunction(productId);
+      }
+    })
+  }
+
+  removeWhenLessThanOne(productId: number) {
+    const dialogRef = this.sharedService.openDeleteDialog("Do You Really Want To Delete The Item?", "Further Quantity Decreasing will lead to depletion of the Item from cart!");
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.deleteItemFunction(productId);
+      }
+    })
+  }
+
+  viewProduct(productId: number) {
+    this.router.navigate([`products/item/${productId}`])
+  }
+
+  deleteItemFunction(productId: number) {
     this.authService.currentUserId$.subscribe((res) => {
       this.userId = res;
     });
@@ -75,7 +102,7 @@ export class CartComponent implements OnInit {
 
         this.authService.updateUser(this.userId, user).subscribe(
           (res) => {
-            console.log('Product removed from cart');
+            this.sharedService.showAlert("Product removed from cart", "success");
             this.cartService.cartSubject.next([...updatedCart]);
 
             this.cartItemsWithDetails = this.cartItemsWithDetails.filter(
@@ -85,14 +112,17 @@ export class CartComponent implements OnInit {
             this.cartSummaryDetails();
           },
           (error) => {
-            console.error('Error removing product from cart:', error);
+            this.sharedService.showAlert("Error removing product from cart", "error");
+            console.error(error);
           }
         );
       },
       (error) => {
-        console.error('Error getting user data:', error);
+        this.sharedService.showAlert("Error getting user data", "error");
+        console.error(error);
       }
     );
+
   }
 
   changeQuantity(productId: number, action: 'increase' | 'decrease') {
@@ -111,16 +141,13 @@ export class CartComponent implements OnInit {
           } else if (action === 'decrease' && cartItem.quantity > 1) {
             cartItem.quantity--;
           } else {
-            this.removeFromCart(productId);
+            this.removeWhenLessThanOne(productId);
           }
 
           this.authService.updateUser(this.userId, user).subscribe(
             (res) => {
-              console.log('Quantity changed in cart');
-              // After successful update, update the cartSubject with the new cart data
               this.cartService.cartSubject.next([...user.cart]);
 
-              // Update the quantity in cartItemsWithDetails
               const cartItemWithDetails = this.cartItemsWithDetails.find(
                 (item) => item.product_id === productId
               );
@@ -132,13 +159,15 @@ export class CartComponent implements OnInit {
 
             },
             (error) => {
-              console.error('Error changing quantity in cart:', error);
+              this.sharedService.showAlert("Error changing quantity in cart", "error");
+              console.error(error);
             }
           );
         }
       },
       (error) => {
-        console.error('Error getting user data:', error);
+        this.sharedService.showAlert("Error getting user data", "error");
+        console.error(error);
       }
     );
   }

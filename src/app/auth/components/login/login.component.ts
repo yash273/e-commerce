@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
 import { email, pass } from 'src/shared/constants/regex-rule';
+import { SharedService } from 'src/shared/services/shared.service';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,7 @@ import { email, pass } from 'src/shared/constants/regex-rule';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
   hide = true;
   loginForm !: FormGroup;
 
@@ -17,6 +19,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
+    private sharedService: SharedService
   ) {
 
   }
@@ -42,16 +45,16 @@ export class LoginComponent implements OnInit {
           if (user) {
             this.authService.saveUserToLocal(user);
             this.router.navigate(['/home']);
-            console.log("login Successful")
+            this.sharedService.showAlert("login Successful", "success");
           } else {
-            console.log("User not found")
+            this.sharedService.showAlert("Please Check Credentials", "error");
           }
         } else {
-          console.log("User not found")
+          this.sharedService.showAlert("User not found", "error");
         }
       })
     } else {
-      console.log("invalid form")
+      this.sharedService.showAlert("Form is invalid. Please check the fields.", "error");
     }
 
   }

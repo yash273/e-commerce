@@ -5,6 +5,7 @@ import { CartRoutingModule } from './cart-routing.module';
 import { CartComponent } from './cart.component';
 import { MaterialModule } from 'src/shared/modules/material.module';
 import { SharedModule } from 'src/shared/shared.module';
+import { CartService } from './service/cart.service';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SharedModule } from 'src/shared/shared.module';
     CartRoutingModule,
     MaterialModule,
     SharedModule
-  ]
+  ],
+  providers: [CartService]
 })
 export class CartModule { }

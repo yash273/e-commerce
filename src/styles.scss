@@ -205,11 +205,11 @@ app-header{width: 100%;}
 .carousel-control-prev-icon{background-image: url(https://cdn-icons-png.flaticon.com/512/318/318276.png);}
 .carousel-control-next-icon{background-image: url(https://cdn-icons-png.flaticon.com/512/54/54661.png);}
 .carousel-control-next, .carousel-control-prev{width: 10%;}
-// .sidenav{position: relative;
-//   .navigation-buttons{position: absolute;z-index: 30;}
-// }
-/*Responsive Media
----------------------------------------------------------------------------------------------*/
+
+.success.mdc-snackbar.mat-mdc-snack-bar-container{ --mdc-snackbar-container-color: #33d633; --mdc-snackbar-supporting-text-color: #e6fae6;}
+.error.mdc-snackbar.mat-mdc-snack-bar-container{ --mdc-snackbar-supporting-text-color: #fae6e6;--mdc-snackbar-container-color: #d11a1a}
+.mat-mdc-snack-bar-container app-alert{display: flex;align-items: center;justify-content: space-between;}
+/*---------------------------------------------------------------------------------------------*/
 @media (min-width:1561px){
     .login-wrapper{padding-right: 0;padding-left: 600px;}
     .login-form{margin: auto;}

@@ -8,6 +8,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AuthInterceptor } from 'src/shared/services/auth.interceptor';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { CartService } from './modules/cart/service/cart.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
   providers: [
     {
       provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
-    }
+    },
+    // CartService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { canActivateGuard } from './helper/can-activate.guard';
 
 const routes: Routes = [
   {
@@ -28,6 +29,7 @@ const routes: Routes = [
   },
   {
     path: 'all-products',
+    canActivate: [canActivateGuard],
     title: 'All Products | E-com',
     loadChildren: () =>
       import('./modules/manage-product/manage-product.module').then((m) => m.ManageProductModule)

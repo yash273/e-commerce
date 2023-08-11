@@ -7,6 +7,10 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { RouterModule } from '@angular/router';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { TruncatePipe } from './pipes/truncate.pipe';
+import { DeleteComponent } from './components/delete/delete.component';
+import { SharedService } from './services/shared.service';
+import { AlertComponent } from './components/alert/alert.component';
+import { CartService } from 'src/app/modules/cart/service/cart.service';
 
 
 
@@ -15,6 +19,8 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     HeaderComponent,
     SidebarComponent,
     TruncatePipe,
+    DeleteComponent,
+    AlertComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +32,10 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     HeaderComponent,
     SidebarComponent,
     TruncatePipe
+  ],
+  providers: [
+    SharedService,
+    CartService
   ]
 })
 export class SharedModule { }

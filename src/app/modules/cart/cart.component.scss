@@ -2,7 +2,10 @@
     .contents{max-width: 1600px; width: 100%;margin: auto;display: flex;}
 }
 
-.item-image-container {width: 500px;display: flex;}
+.item-image-container {width: 500px;display: flex;position: relative;
+    &:hover .view-product{display: block;}}
+.view-product{position: absolute;z-index: 10;top: 0;right: 0;display: none;}
+
 .product-image{width: 240px;margin: auto;}
 .top-content{display: flex;}
 .product-card.cart-card { margin: auto; width: 100%; padding: 12px;margin-bottom: 20px;}
@@ -18,3 +21,5 @@
 .item-controls{display: flex;align-items: center;justify-content: flex-start;}
 .quantity h2{margin: 0 !important;}
 .delete-button{position: absolute;top: 0;right: 0;box-shadow: none;}
+.no-items{background-color: bisque;}
+.to-buy-button{box-shadow: none;}
