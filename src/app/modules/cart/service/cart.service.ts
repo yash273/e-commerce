@@ -68,5 +68,18 @@ export class CartService {
     });
   }
 
+  public cartDetailsSubject = new BehaviorSubject<any>([]);
+  public cartDetails$ = this.cartDetailsSubject.asObservable();
+
+  setCartWithDetails(data: any) {
+    console.log(data)
+    this.cartDetailsSubject.next(data);
+  }
+
+  // getCartWithDetails() {
+  //   console.log(this.cartItemsWithDetails)
+  //   return this.cartItemsWithDetails;
+  // }
+
 }
 

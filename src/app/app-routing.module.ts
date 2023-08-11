@@ -33,7 +33,13 @@ const routes: Routes = [
     title: 'All Products | E-com',
     loadChildren: () =>
       import('./modules/manage-product/manage-product.module').then((m) => m.ManageProductModule)
-  }
+  },
+  {
+    path: 'checkout',
+    title: 'Checkout | E-com',
+    loadChildren: () =>
+      import('./modules/checkout/checkout.module').then((m) => m.CheckoutModule)
+  },
 
 ];
 

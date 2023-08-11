@@ -1,0 +1,37 @@
+<div class="top-container">
+    <button mat-icon-button color="accent" (click)="drawer.toggle()" class="close-button">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <app-header></app-header>
+</div>
+<mat-drawer-container class="example-container" autosize>
+
+    <mat-drawer #drawer class="sidenav" mode="side" opened>
+
+        <app-sidebar></app-sidebar>
+
+    </mat-drawer>
+    <div class="product-container">
+        <div class="contents">
+            <mat-card class="selectedItems">
+                <ng-container *ngFor="let item of selectedItems">
+                    <div class="list-item">
+                        <div class="image-div">
+                            <img class="images" [src]="item.product.images[0].url" alt="{{item.product.name}}">
+                        </div>
+                        <div class="side-div">
+                            <h4>{{item.product.name}}</h4>
+                            <div>Quantity : {{item.quantity}}</div>
+                            <div class="total-amount">Total : {{item.totalAmount | currency}}</div>
+                        </div>
+                    </div>
+                    <mat-divider></mat-divider>
+                </ng-container>
+            </mat-card>
+            <mat-card class="payment">
+                {{totalCartAmount}}
+            </mat-card>
+
+        </div>
+    </div>
+</mat-drawer-container>

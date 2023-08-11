@@ -1,0 +1,10 @@
+.product-container{display: flex;min-height: calc(100vh - 64px);
+    .contents{max-width: 1600px; width: 100%;margin: auto;display: flex;}
+}
+.selectedItems{height: calc(100vh - 100px);margin: auto;margin-right: 0;width: 100%;max-width: 550px;overflow-y: auto;}
+.images{max-width: 100%;height: auto;}
+.image-div{position: relative; width: 100px;height: fit-content;border-radius: 5px;margin-right: 10px;}
+.list-item{display: flex;align-items: center;width: 100%;max-width: 500px;margin: 10px;}
+.side-div{width: 100%;    display: flex;flex-direction: column;}
+.total-amount{align-self: flex-end;}
+.payment{margin: auto;margin-left: 0;height: calc(100vh - 100px);}
