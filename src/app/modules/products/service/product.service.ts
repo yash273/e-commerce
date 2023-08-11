@@ -14,8 +14,4 @@ export class ProductService {
   getProductByCategory(category: string) {
     return this.http.get(environment.baseURL + `products?category=${category}`)
   }
-
-  getProductDataById(productId: number) {
-    return this.http.get(environment.baseURL + `products/${productId}`)
-  }
 }

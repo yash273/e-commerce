@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CartService {
 
-  private cartSubject = new BehaviorSubject<any[]>([]);
+  public cartSubject = new BehaviorSubject<any[]>([]);
   public cart$ = this.cartSubject.asObservable();
 
   constructor(
@@ -73,16 +73,8 @@ export class CartService {
 
 
 
-  getCurrentCart() {
-    this.authService.currentUserId$.subscribe((res) => {
-      this.userId = res;
-    });
-    this.authService.getUserDataById(this.userId).subscribe((res: any) => {
-      this.userData = res;
-      this.userCart = res.cart;
-      console.log(this.userCart)
-    })
-  }
+
+
 
 
 }

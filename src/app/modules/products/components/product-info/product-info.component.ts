@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../service/product.service';
 import { CartService } from 'src/app/modules/cart/service/cart.service';
 import { AuthService } from 'src/app/auth/service/auth.service';
+import { ManageProductService } from 'src/app/modules/manage-product/service/manage-product.service';
 
 @Component({
   selector: 'app-product-info',
@@ -18,14 +19,14 @@ export class ProductInfoComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService,
+    private productService: ManageProductService,
     private authService: AuthService,
     private cartService: CartService
   ) { }
 
   ngOnInit(): void {
     this.productId = this.route.snapshot.params['id'];
-    this.productService.getProductDataById(this.productId).subscribe((res) => {
+    this.productService.getProductById(this.productId).subscribe((res) => {
       this.item = res;
       this.productImages = this.item.images;
       this.selectedImage = this.productImages[0].url;
