@@ -21,7 +21,8 @@ export class ProductInfoComponent implements OnInit {
     private route: ActivatedRoute,
     private productService: ManageProductService,
     private authService: AuthService,
-    private cartService: CartService
+    private cartService: CartService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -38,7 +39,12 @@ export class ProductInfoComponent implements OnInit {
   }
 
   userId !: number;
-  addToCart(productId: number){
+  addToCart(productId: number) {
     this.cartService.addToCart(productId);
+  }
+
+  buyNow(productId: number) {
+    this.addToCart(productId);
+    this.router.navigate(['/cart']);
   }
 }

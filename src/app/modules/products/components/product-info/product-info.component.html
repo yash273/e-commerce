@@ -29,9 +29,6 @@
                             <img [src]="selectedImage" alt="Product Image" class="main-image">
                         </div>
                     </div>
-                    <!-- <div class="item-image-container">
-                        <img class="product-image" mat-card-image src={{item?.image}} alt={{item?.name}}>
-                    </div> -->
 
                     <mat-card-content class="card-content">
                         <mat-card-header>
@@ -45,17 +42,20 @@
                                 <h3>Description</h3>
                             </mat-grid-tile>
                             <mat-grid-tile colspan="3" class="tile-about">
-                                {{item?.description}}</mat-grid-tile>
+                                {{item?.description}}
+                            </mat-grid-tile>
                             <mat-grid-tile colspan="1" class="tile-title">
                                 <h3>Category</h3>
                             </mat-grid-tile>
                             <mat-grid-tile colspan="3" class="tile-about">
-                                {{item?.category}}</mat-grid-tile>
+                                {{item?.category}}
+                            </mat-grid-tile>
                             <mat-grid-tile colspan="1" class="tile-title">
                                 <h3>Brand</h3>
                             </mat-grid-tile>
                             <mat-grid-tile colspan="3" class="tile-about">
-                                {{item?.brand}}</mat-grid-tile>
+                                {{item?.brand}}
+                            </mat-grid-tile>
                             <mat-grid-tile colspan="1" class="tile-title">
                                 <h3>Price</h3>
                             </mat-grid-tile>
@@ -71,7 +71,7 @@
                         </mat-grid-list>
 
                         <mat-card-actions>
-                            <button mat-flat-button color="primary">Buy Now</button>
+                            <button mat-flat-button color="primary" (click)="buyNow(item.id)">Buy Now</button>
                             <button mat-flat-button color="accent" (click)="addToCart(item.id)">Add To Cart</button>
                         </mat-card-actions>
                     </mat-card-content>

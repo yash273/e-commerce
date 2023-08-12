@@ -11,6 +11,8 @@ export class CheckoutComponent implements OnInit {
   cartDetails: any;
   totalCartAmount!: number;
   totalItems!: number;
+  charges!: number;
+  total!: number;
 
   constructor(
     private cartService: CartService
@@ -24,7 +26,8 @@ export class CheckoutComponent implements OnInit {
     this.selectedItems = history.state.selectedItems || [];
     this.totalCartAmount = this.selectedItems.reduce((total, cartItem) => total + cartItem.totalAmount, 0);
     this.totalItems = this.selectedItems.reduce((total, cartItem) => total + cartItem.quantity, 0);
-    console.log(this.totalCartAmount, this.totalItems)
+    this.charges = this.totalItems * 2;
+    this.total = this.charges + this.totalCartAmount;
   }
 
 }

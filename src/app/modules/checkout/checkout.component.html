@@ -29,7 +29,28 @@
                 </ng-container>
             </mat-card>
             <mat-card class="payment">
-                {{totalCartAmount}}
+
+                <mat-grid-list cols="3" rowHeight="50px">
+                    <mat-grid-tile colspan="2" class="tile-title">
+                        <h3>SubTotal</h3>
+                    </mat-grid-tile>
+                    <mat-grid-tile colspan="1" class="tile-about">
+                        {{totalCartAmount | currency}}
+                    </mat-grid-tile>
+                    <mat-grid-tile colspan="2" class="tile-title">
+                        <h3>Charges</h3>
+                    </mat-grid-tile>
+                    <mat-grid-tile colspan="1" class="tile-about">
+                        + {{charges | currency}}
+                    </mat-grid-tile>
+                    <mat-grid-tile colspan="2" class="tile-title">
+                        <h3>Final Amount</h3>
+                    </mat-grid-tile>
+                    <mat-grid-tile colspan="1" class="tile-about">
+                        {{total | currency}}
+                    </mat-grid-tile>
+                </mat-grid-list>
+
             </mat-card>
 
         </div>

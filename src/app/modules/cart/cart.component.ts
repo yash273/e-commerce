@@ -175,7 +175,6 @@ export class CartComponent implements OnInit {
   proceedToBuy() {
     this.router.navigate(['/checkout'], { state: { selectedItems: this.cartItemsWithDetails } });
     this.cartService.setCartWithDetails(this.cartItemsWithDetails)
-    console.log(this.cartItemsWithDetails)
   }
 
 
