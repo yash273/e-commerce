@@ -60,7 +60,7 @@ export class SignUpComponent {
       const formData = { ...this.signUpForm.value };
       delete formData.confirm_password;
       formData.cart = [];
-
+      formData.orders = [];
       formData.phone = parseInt(formData.phone, 10);
 
       this.authService.registerUser(formData).subscribe((res) => {

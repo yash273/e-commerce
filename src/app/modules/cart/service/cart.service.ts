@@ -28,6 +28,13 @@ export class CartService {
       });
   }
 
+  clearCart() {
+    this.cartSubject.next([]);
+    this.cartDetailsSubject.next([]);
+    localStorage.removeItem('cart');
+  }
+
+
   userId !: number;
 
   addToCart(productId: number) {
@@ -38,7 +45,6 @@ export class CartService {
       this.authService.getUserDataById(this.userId).subscribe(
         (user: any) => {
           const existingCartItem = user.cart?.find((item: any) => item.product_id === productId);
-
           if (existingCartItem) {
             existingCartItem.quantity++;
           } else {
@@ -68,18 +74,17 @@ export class CartService {
     });
   }
 
-  public cartDetailsSubject = new BehaviorSubject<any>([]);
+  public cartDetailsSubject = new BehaviorSubject<any>(this.getCartDetailsFromLocal());
   public cartDetails$ = this.cartDetailsSubject.asObservable();
 
   setCartWithDetails(data: any) {
-    console.log(data)
-    this.cartDetailsSubject.next(data);
+    localStorage.setItem('cart', JSON.stringify(data));
+    this.cartDetailsSubject.next(JSON.stringify(data));
   }
 
-  // getCartWithDetails() {
-  //   console.log(this.cartItemsWithDetails)
-  //   return this.cartItemsWithDetails;
-  // }
+  getCartDetailsFromLocal() {
+    return localStorage.getItem('cart');
+  }
 
 }
 

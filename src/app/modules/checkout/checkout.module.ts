@@ -6,6 +6,7 @@ import { CartService } from '../cart/service/cart.service';
 import { CheckoutComponent } from './checkout.component';
 import { SharedModule } from 'src/shared/shared.module';
 import { MaterialModule } from 'src/shared/modules/material.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MaterialModule } from 'src/shared/modules/material.module';
     CommonModule,
     SharedModule,
     CheckoutRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [CartService]
 

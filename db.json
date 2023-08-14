@@ -533,6 +533,7 @@
       "phone": "1234567890",
       "role": 2,
       "email": "johndoe@example.com",
+      "orders": [],
       "password": "securepassword123",
       "cart": []
     },
@@ -542,6 +543,7 @@
       "last_name": "Smith",
       "phone": "9876543210",
       "role": 2,
+      "orders": [],
       "email": "janesmith@example.com",
       "password": "strongpass456",
       "cart": []
@@ -552,6 +554,7 @@
       "last_name": "Johnson",
       "phone": "5554443333",
       "role": 2,
+      "orders": [],
       "email": "michaeljohnson@example.com",
       "password": "secretword789",
       "cart": []
@@ -564,6 +567,7 @@
       "role": 2,
       "email": "emilywilliams@example.com",
       "password": "mypassword987",
+      "orders": [],
       "cart": []
     },
     {
@@ -574,7 +578,8 @@
       "role": 2,
       "email": "davidbrown@example.com",
       "password": "secure123pass",
-      "cart": []
+      "cart": [],
+      "orders": []
     },
     {
       "id": 6,
@@ -584,25 +589,79 @@
       "role": 2,
       "email": "user@mail.com",
       "password": "ZXcv!@34",
-      "cart": [
+      "orders": [
         {
-          "product_id": 13,
-          "quantity": 3
+          "orderNumber": "ORD488558",
+          "date": "2023-08-14T08:21:20.213Z",
+          "items": [
+            {
+              "product_id": 11,
+              "quantity": 1
+            },
+            {
+              "product_id": 12,
+              "quantity": 1
+            },
+            {
+              "product_id": 15,
+              "quantity": 1
+            }
+          ],
+          "totalAmount": 5005.969999999999,
+          "paymentMethod": "cash"
         },
         {
-          "product_id": 1,
+          "orderNumber": "ORD168970",
+          "date": "2023-08-14T08:22:15.121Z",
+          "items": [
+            {
+              "product_id": 1,
+              "quantity": 1
+            },
+            {
+              "product_id": 29,
+              "quantity": 1
+            }
+          ],
+          "totalAmount": 1203.98,
+          "paymentMethod": "paypal"
+        },
+        {
+          "orderNumber": "ORD920803",
+          "date": "2023-08-14T10:04:21.458Z",
+          "items": [
+            {
+              "product_id": 19,
+              "quantity": 4
+            },
+            {
+              "product_id": 9,
+              "quantity": 1
+            }
+          ],
+          "totalAmount": 509.95000000000005,
+          "paymentMethod": "credit-card"
+        },
+        {
+          "orderNumber": "ORD186547",
+          "date": "2023-08-14T11:43:04.778Z",
+          "items": [
+            {
+              "product_id": 11,
+              "quantity": 2
+            }
+          ],
+          "totalAmount": 2403.98,
+          "paymentMethod": "cash"
+        }
+      ],
+      "cart": [
+        {
+          "product_id": 11,
           "quantity": 2
         },
         {
-          "product_id": 15,
-          "quantity": 1
-        },
-        {
-          "product_id": 11,
-          "quantity": 1
-        },
-        {
-          "product_id": 20,
+          "product_id": 12,
           "quantity": 1
         }
       ]
@@ -615,11 +674,8 @@
       "password": "ZXcv!@34",
       "id": 7,
       "role": 1,
+      "orders": [],
       "cart": [
-        {
-          "product_id": 11,
-          "quantity": 1
-        },
         {
           "product_id": 1,
           "quantity": 3
@@ -642,6 +698,7 @@
       "role": 2,
       "password": "ZXcv!@34",
       "cart": [],
+      "orders": [],
       "id": 8
     }
   ]

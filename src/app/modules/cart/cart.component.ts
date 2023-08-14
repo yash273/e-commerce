@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/service/auth.service';
 import { ManageProductService } from '../manage-product/service/manage-product.service';
 import { CartService } from './service/cart.service';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
 
   userId!: number;
   userData: any;
@@ -173,8 +173,12 @@ export class CartComponent implements OnInit {
   }
 
   proceedToBuy() {
-    this.router.navigate(['/checkout'], { state: { selectedItems: this.cartItemsWithDetails } });
-    this.cartService.setCartWithDetails(this.cartItemsWithDetails)
+    this.cartService.setCartWithDetails(this.cartItemsWithDetails);
+    this.router.navigate(['/checkout']);
+  }
+
+  ngOnDestroy(): void {
+    this.cartService.setCartWithDetails(this.cartItemsWithDetails);
   }
 
 

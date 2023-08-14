@@ -1,0 +1,48 @@
+<div class="top-container">
+    <button mat-icon-button color="accent" (click)="drawer.toggle()" class="close-button">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <app-header></app-header>
+</div>
+<mat-drawer-container class="example-container" autosize>
+
+    <mat-drawer #drawer class="sidenav" mode="side" opened>
+
+        <app-sidebar></app-sidebar>
+
+    </mat-drawer>
+    <div class="product-container">
+        <div class="contents">
+            <div class="order-history">
+                <h1>Your Order History</h1>
+
+                <div class="orders-div">
+                    <div class="order" *ngFor="let order of orderHistory">
+                        <mat-card class="order-card">
+                            <mat-card-header>
+                                <mat-card-title>Order ID: {{ order.orderNumber }}</mat-card-title>
+                                <mat-card-subtitle>Placed on: {{ order.date | date:'medium' }}</mat-card-subtitle>
+                            </mat-card-header>
+
+                            <mat-card-content>
+                                <mat-list>
+                                    <mat-list-item *ngFor="let item of order.items">
+                                        <div matListItemTitle>{{ item.product?.name }}</div>
+                                        <div matListItemLine>({{ item.quantity }} x {{ item.product?.price | currency }})</div>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <mat-icon matListItemIcon>label_important</mat-icon>
+                                        <div matListItemTitle>Total Amount: {{ order.totalAmount | currency }}</div>
+                                        <div matListItemLine>Payment Method: {{order.paymentMethod}}</div>
+                                    </mat-list-item>
+                                </mat-list>
+                            </mat-card-content>
+
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</mat-drawer-container>

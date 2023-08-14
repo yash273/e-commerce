@@ -44,7 +44,7 @@ export class ProductInfoComponent implements OnInit {
   }
 
   buyNow(productId: number) {
-    this.addToCart(productId);
+    this.cartService.addToCart(productId);
     this.router.navigate(['/cart']);
   }
 }

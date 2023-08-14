@@ -7,4 +7,5 @@
 .list-item{display: flex;align-items: center;width: 100%;max-width: 500px;margin: 10px;}
 .side-div{width: 100%;    display: flex;flex-direction: column;}
 .total-amount{align-self: flex-end;}
-.payment{margin: auto;margin-left: 0;height: calc(100vh - 100px);width: 100%;max-width: 500px;}
+.payment{margin: auto;margin-left: 0;height: calc(100vh - 100px);width: 100%;max-width: 500px;padding: 20px;}
+.error-block{height: 50px;}

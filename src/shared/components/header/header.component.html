@@ -1,7 +1,9 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
 
-        <span class="header-title" [routerLink]="'/home'">logo here</span>
+        <span class="header-title" [routerLink]="'/home'">
+            <img class="logo" src="assets\logo-colored.png" alt="">
+        </span>
 
         <div class="navigation-buttons">
             <button mat-icon-button class="back-button" matTooltip="Go to Previous Page" (click)="goBack()"><mat-icon>arrow_back</mat-icon></button>

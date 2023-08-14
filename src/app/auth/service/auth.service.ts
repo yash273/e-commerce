@@ -37,8 +37,8 @@ export class AuthService {
   }
 
   removeLoggedUser() {
-    // this.currentUserSubject.next(null);
     localStorage.removeItem('token');
+    localStorage.removeItem('cart');
     return localStorage.removeItem('loggedUserId');
   }
 
@@ -50,8 +50,20 @@ export class AuthService {
     return this.http.get(environment.baseURL + `users/${userId}`)
   }
 
-  updateUser(userId: number, data: any){
+  updateUser(userId: number, data: any) {
     return this.http.put(environment.baseURL + `users/${userId}`, data);
+  }
+
+  addOrderToUser(userId: number, order: any): Observable<any> {
+    return this.http.post(environment.baseURL + `users/${userId}/orders`, order);
+  }
+
+  clearCart(userId: number): Observable<any> {
+    const clearCartData = {
+      cart: [] // Empty cart array
+    };
+
+    return this.http.patch(environment.baseURL + `users/${userId}`, clearCartData);
   }
 
 }

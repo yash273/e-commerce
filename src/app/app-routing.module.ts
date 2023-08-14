@@ -40,6 +40,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/checkout/checkout.module').then((m) => m.CheckoutModule)
   },
+  {
+    path: 'my-orders',
+    title: 'Orders | E-com',
+    loadChildren: () =>
+      import('./modules/order-history/order-history.module').then((m) => m.OrderHistoryModule)
+  }
 
 ];
 
