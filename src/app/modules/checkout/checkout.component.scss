@@ -5,7 +5,24 @@
 .images{max-width: 100%;height: auto;}
 .image-div{position: relative; width: 100px;height: fit-content;border-radius: 5px;margin-right: 10px;}
 .list-item{display: flex;align-items: center;width: 100%;max-width: 500px;margin: 10px;}
-.side-div{width: 100%;    display: flex;flex-direction: column;}
+.side-div{width: 100%;align-items: flex-start;display: flex;flex-direction: column;}
 .total-amount{align-self: flex-end;}
-.payment{margin: auto;margin-left: 0;height: calc(100vh - 100px);width: 100%;max-width: 500px;padding: 20px;}
+.payment{margin: auto;margin-left: 0;margin-top: 0;;height: 500px;width: 100%;max-width: 450px;padding: 20px;}
 .error-block{height: 50px;}
+.buttons{margin-top: auto;
+    button{margin-left: 10px;}}
+
+/*---------------------------------------------------------------------------------------------*/
+@media (max-width:1100px) {
+    .product-container{
+        .contents{max-width: 1600px; flex-direction: column;padding: 30px;}
+    }
+    .selectedItems{height: unset;margin: auto;margin-right: auto;width: 100%;max-width: 550px;}
+    .payment{margin: auto;margin-left: auto;margin-top: 30px;}
+}
+@media (max-width:600px){
+    .list-item{display: flex;align-items: center;max-width: 90%;width: 90%;margin: 10px;}
+    .total-amount{margin-left: auto;}
+    .image-div{width: 70px}
+
+}

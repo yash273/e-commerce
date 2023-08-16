@@ -1,104 +1,104 @@
 <div class="top-container">
-    <button mat-icon-button color="accent" (click)="drawer.toggle()" class="close-button">
+    <button mat-icon-button color="accent" (click)="sidenav.toggle()" class="close-button">
         <mat-icon>menu</mat-icon>
     </button>
     <app-header></app-header>
 </div>
-<mat-drawer-container class="example-container" autosize>
-
-    <mat-drawer #drawer class="sidenav" mode="side" opened>
-
+<mat-sidenav-container>
+    <mat-sidenav #sidenav [opened]="mobileQuery.matches ? 'false' : 'true'" [mode]="mobileQuery.matches ? 'over' : 'side'"
+        [fixedInViewport]="mobileQuery.matches">
         <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="product-container">
+            <div class="contents">
+                <div class="cart-section">
 
-    </mat-drawer>
-    <div class="product-container">
-        <div class="contents">
-            <div class="cart-section">
+                    <h1>Shopping Cart</h1>
+                    <mat-divider></mat-divider>
 
-                <h1>Shopping Cart</h1>
-                <mat-divider></mat-divider>
+                    <span class="lower-section">
+                        <ng-container *ngIf="cartItemsWithDetails.length > 0">
 
-                <span class="lower-section">
-                    <ng-container *ngIf="cartItemsWithDetails.length > 0">
+                            <div class="list-section">
 
-                        <div class="list-section">
+                                <mat-card class="product-card cart-card" *ngFor="let item of cartItemsWithDetails;let i=index">
 
-                            <mat-card class="product-card cart-card" *ngFor="let item of cartItemsWithDetails;let i=index">
+                                    <div class="top-content">
+                                        <div class="item-image-container">
+                                            <button class="view-product" mat-icon-button color="primary" matTooltip="view Product"
+                                                (click)="viewProduct(item.product_id)">
+                                                <mat-icon>remove_red_eye</mat-icon>
+                                            </button>
+                                            <img class="product-image" mat-card-image [src]='item.product.images[0].url' alt="Photo of a Shiba Inu">
+                                        </div>
 
-                                <div class="top-content">
-                                    <div class="item-image-container">
-                                        <button class="view-product" mat-icon-button color="primary" matTooltip="view Product"
-                                            (click)="viewProduct(item.product_id)">
-                                            <mat-icon>remove_red_eye</mat-icon>
-                                        </button>
-                                        <img class="product-image" mat-card-image [src]='item.product.images[0].url' alt="Photo of a Shiba Inu">
+                                        <mat-card-content class="card-content">
+                                            <mat-card-header>
+                                                <mat-card-title>{{item.product.name | truncate : 35}}</mat-card-title>
+                                                <mat-card-subtitle>From {{item.product.brand}}</mat-card-subtitle>
+                                            </mat-card-header>
+                                            <mat-card-header>
+                                                <h2>{{item.product.price | currency}}</h2>
+                                            </mat-card-header>
+                                            <div class="item-controls">
+                                                <button mat-icon-button (click)="changeQuantity(item.product_id, 'decrease')">
+                                                    <mat-icon>remove</mat-icon>
+                                                </button>
+                                                <span class="quantity">
+                                                    <h2>{{ item.quantity }}</h2>
+                                                </span>
+                                                <button mat-icon-button (click)="changeQuantity(item.product_id, 'increase')">
+                                                    <mat-icon>add</mat-icon>
+                                                </button>
+                                            </div>
+                                            <p class="total-amount">Total Per Item: {{ item.totalAmount | currency }}</p>
+
+                                            <button class="delete-button" mat-mini-fab color="warn" (click)="removeFromCart(item.product_id)"
+                                                matTooltip="Delete item from Cart">
+                                                <mat-icon>delete</mat-icon>
+                                            </button>
+                                        </mat-card-content>
                                     </div>
 
-                                    <mat-card-content class="card-content">
-                                        <mat-card-header>
-                                            <mat-card-title>{{item.product.name | truncate : 35}}</mat-card-title>
-                                            <mat-card-subtitle>From {{item.product.brand}}</mat-card-subtitle>
-                                        </mat-card-header>
-                                        <mat-card-header>
-                                            <h2>{{item.product.price | currency}}</h2>
-                                        </mat-card-header>
-                                        <div class="item-controls">
-                                            <button mat-icon-button (click)="changeQuantity(item.product_id, 'decrease')">
-                                                <mat-icon>remove</mat-icon>
-                                            </button>
-                                            <span class="quantity">
-                                                <h2>{{ item.quantity }}</h2>
-                                            </span>
-                                            <button mat-icon-button (click)="changeQuantity(item.product_id, 'increase')">
-                                                <mat-icon>add</mat-icon>
-                                            </button>
-                                        </div>
-                                        <p class="total-amount">Total Per Item: {{ item.totalAmount | currency }}</p>
+                                </mat-card>
 
-                                        <button class="delete-button" mat-mini-fab color="warn" (click)="removeFromCart(item.product_id)"
-                                            matTooltip="Delete item from Cart">
-                                            <mat-icon>delete</mat-icon>
-                                        </button>
+                            </div>
+
+                            <div class="total-section">
+
+                                <mat-card class="total-card">
+                                    <mat-card-header>
+                                        <mat-card-title>Cart Summary</mat-card-title>
+                                        <mat-card-subtitle></mat-card-subtitle>
+                                    </mat-card-header>
+                                    <mat-card-content>
+                                        <h3>Subtotal ( {{totalItems}} items) :</h3>
+                                        <h2> {{totalCartAmount | currency}}</h2>
                                     </mat-card-content>
-                                </div>
+                                    <mat-card-actions>
+                                        <button class="to-buy-button" mat-fab extended color="primary" (click)="proceedToBuy()">
+                                            Proceed To Buy
+                                            <mat-icon>exit_to_app</mat-icon>
+                                        </button>
+                                    </mat-card-actions>
+                                </mat-card>
 
-                            </mat-card>
+                            </div>
+                        </ng-container>
 
-                        </div>
-
-                        <div class="total-section">
-
-                            <mat-card class="total-card">
-                                <mat-card-header>
-                                    <mat-card-title>Cart Summary</mat-card-title>
-                                    <mat-card-subtitle></mat-card-subtitle>
-                                </mat-card-header>
-                                <mat-card-content>
-                                    <h3>Subtotal ( {{totalItems}} items) :</h3>
-                                    <h2> {{totalCartAmount | currency}}</h2>
-                                </mat-card-content>
-                                <mat-card-actions>
-                                    <button class="to-buy-button" mat-fab extended color="primary" (click)="proceedToBuy()">
-                                        Proceed To Buy
-                                        <mat-icon>exit_to_app</mat-icon>
-                                    </button>
-                                </mat-card-actions>
-                            </mat-card>
-
+                    </span>
+                    <ng-container *ngIf="cartItemsWithDetails.length == 0">
+                        <div class="no-items">
+                            <h1>No Items In Shopping Cart</h1>
+                            <button mat-flat-button color="accent" routerLink="/home">Go to Home</button>
                         </div>
                     </ng-container>
 
-                </span>
-                <ng-container *ngIf="cartItemsWithDetails.length == 0">
-                    <div class="no-items">
-                        <h1>No Items In Shopping Cart</h1>
-                        <button mat-flat-button color="accent" routerLink="/home">Go to Home</button>
-                    </div>
-                </ng-container>
+                </div>
 
             </div>
 
         </div>
-
-    </div>
-</mat-drawer-container>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,97 +1,101 @@
 <div class="top-container">
-    <button mat-icon-button color="accent" (click)="drawer.toggle()" class="close-button">
+    <button mat-icon-button color="accent" (click)="sidenav.toggle()" class="close-button">
         <mat-icon>menu</mat-icon>
     </button>
     <app-header></app-header>
 </div>
-<mat-drawer-container class="example-container" autosize>
-
-    <mat-drawer #drawer class="sidenav" mode="side" opened>
-
+<mat-sidenav-container>
+    <mat-sidenav #sidenav [opened]="mobileQuery.matches ? 'false' : 'true'" [mode]="mobileQuery.matches ? 'over' : 'side'"
+        [fixedInViewport]="mobileQuery.matches">
         <app-sidebar></app-sidebar>
-
-    </mat-drawer>
-    <div class="product-container">
-        <div class="contents">
-            <ng-container *ngIf="selectedItems !== []">
-                <mat-card class="selectedItems">
-                    <ng-container *ngFor="let item of selectedItems">
-                        <div class="list-item">
-                            <div class="image-div">
-                                <img class="images" [src]="item.product.images[0].url" alt="{{item.product.name}}">
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="product-container">
+            <div class="contents">
+                <ng-container *ngIf="selectedItems !== []">
+                    <mat-card class="selectedItems">
+                        <ng-container *ngFor="let item of selectedItems">
+                            <div class="list-item">
+                                <div class="image-div">
+                                    <img class="images" [src]="item.product.images[0].url" alt="{{item.product.name}}">
+                                </div>
+                                <div class="side-div">
+                                    <h4>{{item.product.name}}</h4>
+                                    <div>Quantity : {{item.quantity}}</div>
+                                    <div class="total-amount">Total : {{item.totalAmount | currency}}</div>
+                                </div>
                             </div>
-                            <div class="side-div">
-                                <h4>{{item.product.name}}</h4>
-                                <div>Quantity : {{item.quantity}}</div>
-                                <div class="total-amount">Total : {{item.totalAmount | currency}}</div>
+                            <mat-divider></mat-divider>
+                        </ng-container>
+                    </mat-card>
+                    <mat-card class="payment">
+
+                        <mat-grid-list cols="3" rowHeight="50px">
+                            <mat-grid-tile colspan="2" class="tile-title">
+                                <h3>SubTotal</h3>
+                            </mat-grid-tile>
+                            <mat-grid-tile colspan="1" class="tile-about">
+                                {{totalCartAmount | currency}}
+                            </mat-grid-tile>
+                            <mat-grid-tile colspan="2" class="tile-title">
+                                <h3>Charges</h3>
+                            </mat-grid-tile>
+                            <mat-grid-tile colspan="1" class="tile-about">
+                                + {{charges | currency}}
+                            </mat-grid-tile>
+                            <mat-grid-tile colspan="2" class="tile-title">
+                                <h3>Final Amount</h3>
+                            </mat-grid-tile>
+                            <mat-grid-tile colspan="1" class="tile-about">
+                                {{total | currency}}
+                            </mat-grid-tile>
+                        </mat-grid-list>
+
+                        <div>
+                            <h3>Please Select Payment Mode:</h3>
+                            <mat-radio-group [(ngModel)]="selectedPaymentMethod">
+                                <mat-radio-button *ngFor="let method of paymentMethods" [value]="method.value">
+                                    {{ method.label }}
+                                </mat-radio-button>
+                            </mat-radio-group>
+                            <div *ngIf="selectedPaymentMethod === 'credit-card'">
+                                <mat-form-field class="w100">
+                                    <input matInput placeholder="Credit Card Number" [(ngModel)]="creditCardNumber">
+                                </mat-form-field>
                             </div>
+
+                            <div *ngIf="selectedPaymentMethod === 'paypal'">
+                                <mat-form-field class="w100">
+                                    <input matInput placeholder="PayPal Account Email" [(ngModel)]="paypalAccountEmail">
+                                </mat-form-field>
+                            </div>
+
+                            <div *ngIf="selectedPaymentMethod === 'cash'">
+                                <mat-form-field class="w100">
+                                    <textarea matInput placeholder="Comments or Special Instructions" [(ngModel)]="cashPaymentComments"></textarea>
+                                </mat-form-field>
+                            </div>
+
+
                         </div>
-                        <mat-divider></mat-divider>
-                    </ng-container>
-                </mat-card>
-                <mat-card class="payment">
-
-                    <mat-grid-list cols="3" rowHeight="50px">
-                        <mat-grid-tile colspan="2" class="tile-title">
-                            <h3>SubTotal</h3>
-                        </mat-grid-tile>
-                        <mat-grid-tile colspan="1" class="tile-about">
-                            {{totalCartAmount | currency}}
-                        </mat-grid-tile>
-                        <mat-grid-tile colspan="2" class="tile-title">
-                            <h3>Charges</h3>
-                        </mat-grid-tile>
-                        <mat-grid-tile colspan="1" class="tile-about">
-                            + {{charges | currency}}
-                        </mat-grid-tile>
-                        <mat-grid-tile colspan="2" class="tile-title">
-                            <h3>Final Amount</h3>
-                        </mat-grid-tile>
-                        <mat-grid-tile colspan="1" class="tile-about">
-                            {{total | currency}}
-                        </mat-grid-tile>
-                    </mat-grid-list>
-
-                    <div>
-                        <h3>Please Select Payment Mode:</h3>
-                        <mat-radio-group [(ngModel)]="selectedPaymentMethod">
-                            <mat-radio-button *ngFor="let method of paymentMethods" [value]="method.value">
-                                {{ method.label }}
-                            </mat-radio-button>
-                        </mat-radio-group>
-                        <div *ngIf="selectedPaymentMethod === 'credit-card'">
-                            <mat-form-field class="w100">
-                                <input matInput placeholder="Credit Card Number" [(ngModel)]="creditCardNumber">
-                            </mat-form-field>
+                        <div class="error-block">
+                            <mat-error>{{ paymentMethodError }}</mat-error>
                         </div>
 
-                        <div *ngIf="selectedPaymentMethod === 'paypal'">
-                            <mat-form-field class="w100">
-                                <input matInput placeholder="PayPal Account Email" [(ngModel)]="paypalAccountEmail">
-                            </mat-form-field>
-                        </div>
-
-                        <div *ngIf="selectedPaymentMethod === 'cash'">
-                            <mat-form-field class="w100">
-                                <textarea matInput placeholder="Comments or Special Instructions" [(ngModel)]="cashPaymentComments"></textarea>
-                            </mat-form-field>
-                        </div>
+                        <mat-card-actions class="buttons">
+                            <button mat-raised-button color="accent" routerLink="/cart">Back To Cart</button>
+                            <button mat-raised-button color="primary" (click)="proceedToBuy()"> buy</button>
+                        </mat-card-actions>
 
 
-                    </div>
-                    <div class="error-block">
-                        <mat-error>{{ paymentMethodError }}</mat-error>
-                    </div>
-
-                    <button mat-raised-button (click)="proceedToBuy()"> buy</button>
-
-                </mat-card>
-            </ng-container>
-            <ng-container *ngIf="selectedItems === []">
-                null
-            </ng-container>
+                    </mat-card>
+                </ng-container>
+                <ng-container *ngIf="selectedItems === []">
+                    null
+                </ng-container>
 
 
+            </div>
         </div>
-    </div>
-</mat-drawer-container>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -192,7 +192,7 @@ app-header{position: sticky;top: 0;z-index: 30;}
 .mat-h3, .mat-subtitle-1, .mat-typography .mat-h3, .mat-typography .mat-subtitle-1, .mat-typography h3{margin: 0;}
 mat-card-actions button:nth-child(n + 2){margin-left: 30px;}
 .p-image{width: 200px;margin: auto;max-width: 100%;height: auto;}
-.image-container{display: flex;height: 360px;}
+.image-container{display: flex;height: 300px;}
 
 .close-button{position: absolute !important;top: 8px;z-index: 31 !important; left:8px}
 // .navigation-buttons{position: absolute !important;top: 8px;z-index: 31 !important;}
@@ -206,6 +206,8 @@ app-header{width: 100%;}
 .success.mdc-snackbar.mat-mdc-snack-bar-container{ --mdc-snackbar-container-color: #33d633; --mdc-snackbar-supporting-text-color: #e6fae6;}
 .error.mdc-snackbar.mat-mdc-snack-bar-container{ --mdc-snackbar-supporting-text-color: #fae6e6;--mdc-snackbar-container-color: #d11a1a}
 .mat-mdc-snack-bar-container app-alert{display: flex;align-items: center;justify-content: space-between;}
+
+
 /*---------------------------------------------------------------------------------------------*/
 @media (min-width:1561px){
     .login-wrapper{padding-right: 0;padding-left: 600px;}

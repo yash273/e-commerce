@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { HomeService } from './service/home.service';
 import { Router } from '@angular/router';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-home',
@@ -15,11 +16,23 @@ export class HomeComponent implements OnInit {
   route = 'home'
   groupedProducts: { [category: string]: any[] } = {};
 
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
+
   constructor(
     private homeService: HomeService,
-    private router: Router
-  ) {
+    private router: Router,
+    changeDetectorRef: ChangeDetectorRef, media: MediaMatcher
 
+  ) {
+    this.mobileQuery = media.matchMedia('(max-width: 1000px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+
+  }
+
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
   ngOnInit(): void {

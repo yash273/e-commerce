@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CartService } from '../cart/service/cart.service';
 import { AuthService } from 'src/app/auth/service/auth.service';
 import { SharedService } from 'src/shared/services/shared.service';
 import { Router } from '@angular/router';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-checkout',
@@ -17,17 +18,30 @@ export class CheckoutComponent implements OnInit {
   charges!: number;
   total!: number;
   userId!: number;
+  selectedItems: any[] = [];
+
+
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
 
   constructor(
     private cartService: CartService,
     private authService: AuthService,
     private sharedService: SharedService,
-    private router: Router
+    private router: Router,
+    changeDetectorRef: ChangeDetectorRef, media: MediaMatcher
   ) {
+
+    this.mobileQuery = media.matchMedia('(max-width: 1200px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
 
   }
 
-  selectedItems: any[] = [];
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
 
   ngOnInit(): void {
     this.authService.currentUserId$.subscribe((res) => {

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../service/product.service';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-product-list',
@@ -14,11 +15,21 @@ export class ProductListComponent implements OnInit {
   productImages: any
   selectedImage: string = '';
 
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
+
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    changeDetectorRef: ChangeDetectorRef, media: MediaMatcher
+
   ) {
+
+    this.mobileQuery = media.matchMedia('(max-width: 1100px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
 
   }
 
@@ -29,6 +40,10 @@ export class ProductListComponent implements OnInit {
         this.products = res;
       })
     });
+  }
+
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
   viewProduct(productId: number) {

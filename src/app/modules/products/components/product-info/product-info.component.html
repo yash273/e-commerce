@@ -1,83 +1,79 @@
 <div class="top-container">
-    <button mat-icon-button color="accent" (click)="drawer.toggle()" class="close-button">
+    <button mat-icon-button color="accent" (click)="sidenav.toggle()" class="close-button">
         <mat-icon>menu</mat-icon>
     </button>
     <app-header></app-header>
 </div>
-<mat-drawer-container class="example-container" autosize>
-
-    <mat-drawer #drawer class="sidenav" mode="side" opened>
-
+<mat-sidenav-container>
+    <mat-sidenav #sidenav [opened]="mobileQuery.matches ? 'false' : 'true'" [mode]="mobileQuery.matches ? 'over' : 'side'"
+        [fixedInViewport]="mobileQuery.matches">
         <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="product-container">
+            <div class="contents">
+                <mat-card class="product-card">
 
-    </mat-drawer>
-    <div class="product-container">
-        <div class="contents">
-            <mat-card class="product-card">
+                    <div class="top-content">
 
-                <div class="top-content">
+                        <div class="image-section">
 
-                    <div class="mini-images-section">
-                        <ng-container *ngFor="let image of productImages; let i= index">
-                            <div class="image-div">
-                                <img class="images" (mouseenter)="showFullImage(image?.url)" mat-card-image src={{image?.url}} alt="{{i}}-th Image">
+                            <div class="mini-images-section">
+                                <ng-container *ngFor="let image of productImages; let i= index">
+                                    <div class="image-div">
+                                        <img class="images" (mouseenter)="showFullImage(image?.url)" mat-card-image src={{image?.url}}
+                                            alt="{{i}}-th Image">
+                                    </div>
+                                </ng-container>
                             </div>
-                        </ng-container>
-                    </div>
-                    <div class="main-image-container">
-                        <div class="image-container">
-                            <img [src]="selectedImage" alt="Product Image" class="main-image">
+                            <div class="main-image-container">
+                                <div class="image-container-list">
+                                    <img [src]="selectedImage" alt="Product Image" class="main-image">
+                                </div>
+                            </div>
+
                         </div>
+
+                        <mat-card-content class="card-content">
+                            <mat-card-header>
+                                <div mat-card-avatar><mat-icon> beenhere</mat-icon></div>
+                                <mat-card-title>{{item?.name}}</mat-card-title>
+                                <mat-card-subtitle>From {{item?.brand}}</mat-card-subtitle>
+                            </mat-card-header>
+
+                            <div class="information-container">
+                                <div class="information-item">
+                                    <h3 class="tile-title">Description</h3>
+                                    <p class="tile-about">{{item?.description}}</p>
+                                </div>
+                                <div class="information-item">
+                                    <h3 class="tile-title">Category</h3>
+                                    <p class="tile-about">{{item?.category}}</p>
+                                </div>
+                                <div class="information-item">
+                                    <h3 class="tile-title">Brand</h3>
+                                    <p class="tile-about">{{item?.brand}}</p>
+                                </div>
+                                <div class="information-item">
+                                    <h3 class="tile-title">Price</h3>
+                                    <p class="tile-about">{{item?.price | currency}}</p>
+                                </div>
+                                <div class="information-item">
+                                    <h3 class="tile-title">Sold By</h3>
+                                    <p class="tile-about">{{item?.sold_by}}</p>
+                                </div>
+                            </div>
+
+
+                            <mat-card-actions>
+                                <!-- <button mat-flat-button color="primary" (click)="buyNow(item.id)">Buy Now</button> -->
+                                <button mat-flat-button color="accent" (click)="addToCart(item.id)">Add To Cart</button>
+                            </mat-card-actions>
+                        </mat-card-content>
                     </div>
 
-                    <mat-card-content class="card-content">
-                        <mat-card-header>
-                            <div mat-card-avatar><mat-icon> beenhere</mat-icon></div>
-                            <mat-card-title>{{item?.name}}</mat-card-title>
-                            <mat-card-subtitle>From {{item?.brand}}</mat-card-subtitle>
-                        </mat-card-header>
-
-                        <mat-grid-list cols="4" rowHeight="60px">
-                            <mat-grid-tile colspan="1" class="tile-title">
-                                <h3>Description</h3>
-                            </mat-grid-tile>
-                            <mat-grid-tile colspan="3" class="tile-about">
-                                {{item?.description}}
-                            </mat-grid-tile>
-                            <mat-grid-tile colspan="1" class="tile-title">
-                                <h3>Category</h3>
-                            </mat-grid-tile>
-                            <mat-grid-tile colspan="3" class="tile-about">
-                                {{item?.category}}
-                            </mat-grid-tile>
-                            <mat-grid-tile colspan="1" class="tile-title">
-                                <h3>Brand</h3>
-                            </mat-grid-tile>
-                            <mat-grid-tile colspan="3" class="tile-about">
-                                {{item?.brand}}
-                            </mat-grid-tile>
-                            <mat-grid-tile colspan="1" class="tile-title">
-                                <h3>Price</h3>
-                            </mat-grid-tile>
-                            <mat-grid-tile colspan="3" class="tile-about">
-                                <h2>{{item?.price | currency}}</h2>
-                            </mat-grid-tile>
-                            <mat-grid-tile colspan="1" class="tile-title">
-                                <h3>Sold By</h3>
-                            </mat-grid-tile>
-                            <mat-grid-tile colspan="3" class="tile-about">
-                                {{item?.sold_by}}
-                            </mat-grid-tile>
-                        </mat-grid-list>
-
-                        <mat-card-actions>
-                            <button mat-flat-button color="primary" (click)="buyNow(item.id)">Buy Now</button>
-                            <button mat-flat-button color="accent" (click)="addToCart(item.id)">Add To Cart</button>
-                        </mat-card-actions>
-                    </mat-card-content>
-                </div>
-
-            </mat-card>
+                </mat-card>
+            </div>
         </div>
-    </div>
-</mat-drawer-container>
+    </mat-sidenav-content>
+</mat-sidenav-container>

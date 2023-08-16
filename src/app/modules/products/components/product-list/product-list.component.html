@@ -1,41 +1,37 @@
 <div class="top-container">
-    <button mat-icon-button color="accent" (click)="drawer.toggle()" class="close-button">
+    <button mat-icon-button color="accent" (click)="sidenav.toggle()" class="close-button">
         <mat-icon>menu</mat-icon>
     </button>
     <app-header></app-header>
 </div>
-<mat-drawer-container class="example-container" autosize>
-
-    <mat-drawer #drawer class="sidenav" mode="side" opened>
-
+<mat-sidenav-container>
+    <mat-sidenav #sidenav [opened]="mobileQuery.matches ? 'false' : 'true'" [mode]="mobileQuery.matches ? 'over' : 'side'"
+        [fixedInViewport]="mobileQuery.matches">
         <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="product-container">
+            <div class="contents">
+                <ng-container *ngFor="let product of products">
+                    <mat-card class="product-card">
+                        <mat-card-header (click)="viewProduct(product.id)">
+                            <mat-card-title>{{product.name}}</mat-card-title>
+                            <mat-card-subtitle>From {{product.brand}}</mat-card-subtitle>
+                        </mat-card-header>
+                        <div class="image-container">
+                            <img class="prod-image" (click)="viewProduct(product.id)" mat-card-image [src]='product.images[0].url'
+                                alt={{product.name}}>
+                        </div>
+                        <mat-card-content (click)="viewProduct(product.id)">
+                            <h2>{{product.price | currency}}</h2>
+                            <p>
+                                {{product.description | truncate : 80}}
+                            </p>
+                        </mat-card-content>
+                    </mat-card>
 
-    </mat-drawer>
-    <div class="product-container">
-        <div class="contents">
-            <ng-container *ngFor="let product of products">
-                <mat-card class="product-card">
-                    <mat-card-header (click)="viewProduct(product.id)">
-                        <mat-card-title>{{product.name}}</mat-card-title>
-                        <mat-card-subtitle>From {{product.brand}}</mat-card-subtitle>
-                    </mat-card-header>
-                    <div class="image-container">
-                        <img class="p-image" (click)="viewProduct(product.id)" mat-card-image [src]='product.images[0].url' alt={{product.name}}>
-
-                        <!-- <img class="p-image" (click)="viewProduct(product.id)" mat-card-image src={{product.image}} alt={{product.name}}> -->
-                    </div>
-                    <mat-card-content (click)="viewProduct(product.id)">
-                        <p>
-                            {{product.description}}
-                        </p>
-                    </mat-card-content>
-                    <!-- <mat-card-actions>
-                        <button mat-flat-button color="primary">Buy Now</button>
-                        <button mat-flat-button color="accent">Add To Cart</button>
-                    </mat-card-actions> -->
-                </mat-card>
-
-            </ng-container>
+                </ng-container>
+            </div>
         </div>
-    </div>
-</mat-drawer-container>
+    </mat-sidenav-content>
+</mat-sidenav-container>

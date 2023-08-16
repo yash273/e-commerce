@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { HomeService } from 'src/app/modules/home/service/home.service';
 import { ManageProductService } from '../../service/manage-product.service';
 import { Router } from '@angular/router';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-all-products',
@@ -21,13 +22,26 @@ export class AllProductsComponent implements OnInit {
   pageSize: number = this.itemsPerPage
   totalItems: number = 50;
 
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
 
   constructor(
     private homeService: HomeService,
     private manageProductService: ManageProductService,
-    private router: Router
+    private router: Router,
+    changeDetectorRef: ChangeDetectorRef, media: MediaMatcher
+
   ) {
 
+    this.mobileQuery = media.matchMedia('(max-width: 1000px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+
+
+  }
+
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
   ngOnInit(): void {

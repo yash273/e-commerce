@@ -1,19 +1,18 @@
 <div class="top-container">
-    <button mat-icon-button color="accent" (click)="drawer.toggle()" class="close-button">
+    <button mat-icon-button color="accent" (click)="sidenav.toggle()" class="close-button">
         <mat-icon>menu</mat-icon>
     </button>
     <app-header></app-header>
 </div>
-<mat-drawer-container class="example-container" autosize>
-
-    <mat-drawer #drawer class="sidenav" mode="side" opened>
-
+<mat-sidenav-container>
+    <mat-sidenav #sidenav [opened]="mobileQuery.matches ? 'false' : 'true'" [mode]="mobileQuery.matches ? 'over' : 'side'"
+        [fixedInViewport]="mobileQuery.matches">
         <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="product-container">
+            <div class="contents">
 
-    </mat-drawer>
-    <div class="product-container">
-        <div class="contents">
-            <div class="order-history">
                 <h1>Your Order History</h1>
 
                 <div class="orders-div">
@@ -41,8 +40,8 @@
                         </mat-card>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
-    </div>
-</mat-drawer-container>
+    </mat-sidenav-content>
+</mat-sidenav-container>

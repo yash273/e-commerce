@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { category } from 'src/shared/constants/category';
 import { price } from 'src/shared/constants/regex-rule';
 import { ManageProductService } from '../../service/manage-product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from 'src/shared/services/shared.service';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-add-edit-products',
@@ -18,14 +19,28 @@ export class AddEditProductsComponent implements OnInit {
   productId!: number;
   imageArray: { url: string }[] = [];
 
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
+
+
   constructor(
     private formBuilder: FormBuilder,
     private manageProductService: ManageProductService,
     private route: ActivatedRoute,
     private router: Router,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    changeDetectorRef: ChangeDetectorRef, media: MediaMatcher
+
   ) {
 
+    this.mobileQuery = media.matchMedia('(max-width: 900px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+
+  }
+
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
   ngOnInit(): void {

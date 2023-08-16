@@ -1,3 +1,9 @@
 .orders-div{display: flex;margin: auto;width: 100%;max-width: 500px;flex-direction: column;overflow-y: auto;
     height: calc(100vh - 120px);}
 .order-card{margin-bottom: 20px;}
+.contents{padding: 0 30px;}
+
+/*---------------------------------------------------------------------------------------------*/
+@media (max-width:700px) {
+    .orders-div{max-width: 440px;}
+}

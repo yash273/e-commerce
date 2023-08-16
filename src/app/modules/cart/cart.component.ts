@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/service/auth.service';
 import { ManageProductService } from '../manage-product/service/manage-product.service';
 import { CartService } from './service/cart.service';
@@ -6,6 +6,7 @@ import { DeleteComponent } from 'src/shared/components/delete/delete.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { SharedService } from 'src/shared/services/shared.service';
 import { Router } from '@angular/router';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-cart',
@@ -21,13 +22,26 @@ export class CartComponent implements OnInit, OnDestroy {
   totalItems!: number;
   totalCartAmount!: number;
 
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
+
   constructor(
     private authService: AuthService,
     private productService: ManageProductService,
     private cartService: CartService,
     private sharedService: SharedService,
-    private router: Router
-  ) { }
+    private router: Router,
+    changeDetectorRef: ChangeDetectorRef, media: MediaMatcher
+
+  ) {
+
+    this.mobileQuery = media.matchMedia('(max-width: 1280px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+
+  }
+
+
 
   ngOnInit(): void {
     this.authService.currentUserId$.subscribe((res) => {
@@ -179,6 +193,7 @@ export class CartComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.cartService.setCartWithDetails(this.cartItemsWithDetails);
+    this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
 
