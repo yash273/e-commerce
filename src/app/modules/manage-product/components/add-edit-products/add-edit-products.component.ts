@@ -29,7 +29,7 @@ export class AddEditProductsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private sharedService: SharedService,
-    changeDetectorRef: ChangeDetectorRef, media: MediaMatcher
+    private changeDetectorRef: ChangeDetectorRef, media: MediaMatcher
 
   ) {
 
@@ -122,6 +122,8 @@ export class AddEditProductsComponent implements OnInit {
       };
     }
     this.productForm.get('images')?.setValue(this.imageArray);
+    this.changeDetectorRef.detectChanges();
+    // console.log(this.productForm.value);
   }
 
   removeImage(imageIndex: number) {

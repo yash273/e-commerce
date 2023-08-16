@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/service/auth.service';
 import { CartService } from 'src/app/modules/cart/service/cart.service';
+import { User } from 'src/shared/interfaces/user';
 import { SharedService } from 'src/shared/services/shared.service';
 
 @Component({
@@ -13,7 +14,7 @@ import { SharedService } from 'src/shared/services/shared.service';
 export class HeaderComponent implements OnInit {
 
   currentUserId !: number;
-  currentUser: any;
+  currentUser!: User;
   cartItemCount!: number;
 
   constructor(
@@ -32,7 +33,7 @@ export class HeaderComponent implements OnInit {
     this.cartService.cart();
     this.authService.currentUserId$.subscribe((res) => {
       this.currentUserId = res;
-      this.authService.getUserDataById(res).subscribe((result) => {
+      this.authService.getUserDataById(res).subscribe((result: any) => {
         this.currentUser = result
       })
     });

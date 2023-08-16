@@ -6,6 +6,7 @@ import { OrderHistoryComponent } from './order-history.component';
 import { SharedModule } from 'src/shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/shared/modules/material.module';
+import { OrderHistoryService } from './service/order-history.service';
 
 
 @NgModule({
@@ -18,6 +19,8 @@ import { MaterialModule } from 'src/shared/modules/material.module';
     MaterialModule,
     FormsModule,
     SharedModule
-  ]
+  ],
+  providers: [OrderHistoryService]
+
 })
 export class OrderHistoryModule { }

@@ -17,7 +17,7 @@
 
                 <div class="orders-div">
                     <div class="order" *ngFor="let order of orderHistory">
-                        <mat-card class="order-card">
+                        <mat-card class="order-card" (click)="viewOrder(order.items,order.orderNumber )">
                             <mat-card-header>
                                 <mat-card-title>Order ID: {{ order.orderNumber }}</mat-card-title>
                                 <mat-card-subtitle>Placed on: {{ order.date | date:'medium' }}</mat-card-subtitle>

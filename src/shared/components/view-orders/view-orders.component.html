@@ -1,0 +1,13 @@
+{{data.id}}
+<mat-list>
+    <mat-list-item *ngFor="let item of data.orders">
+        <div matListItemTitle>{{ item.product?.name }}</div>
+        <div matListItemLine>({{ item.quantity }} x {{ item.product?.price | currency }})</div>
+    </mat-list-item>
+    <mat-list-item>
+        <mat-icon matListItemIcon>label_important</mat-icon>
+    </mat-list-item>
+</mat-list>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close cdkFocusInitial>Close</button>
+</div>

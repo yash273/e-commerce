@@ -3,6 +3,7 @@ import { DeleteComponent } from '../components/delete/delete.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AlertComponent } from '../components/alert/alert.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ViewOrdersComponent } from '../components/view-orders/view-orders.component';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,14 @@ export class SharedService {
       width: '400px',
       disableClose: true,
       data: { warning: message, title: title, data: data }
+    });
+  }
+
+  openViewOrders(orders: any, orderNumber: string) {
+    return this.dialog.open(ViewOrdersComponent, {
+      width: '600px',
+      disableClose: false,
+      data: { orders: orders, id: orderNumber }
     });
   }
 

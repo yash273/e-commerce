@@ -2,6 +2,8 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/service/auth.service';
 import { ManageProductService } from '../manage-product/service/manage-product.service';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { SharedService } from 'src/shared/services/shared.service';
+import { OrderHistoryService } from './service/order-history.service';
 
 @Component({
   selector: 'app-order-history',
@@ -18,6 +20,8 @@ export class OrderHistoryComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private sharedService: SharedService,
+    private orderHistoryService: OrderHistoryService,
     private manageProductService: ManageProductService,
     changeDetectorRef: ChangeDetectorRef, media: MediaMatcher
 
@@ -53,5 +57,9 @@ export class OrderHistoryComponent implements OnInit {
       });
       console.log(this.orderHistory)
     });
+  }
+
+  viewOrder(orderItems: any, orderNumber: string) {
+    this.sharedService.openViewOrders(orderNumber, orderItems);
   }
 }

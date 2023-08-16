@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'e-commerce';
+
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
+
+  constructor(
+    private changeDetectorRef: ChangeDetectorRef, media: MediaMatcher
+
+  ) {
+
+    this.mobileQuery = media.matchMedia('(max-width: 900px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+
+  }
+
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+
+  }
 }

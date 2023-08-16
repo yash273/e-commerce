@@ -52,7 +52,7 @@
                                                     <mat-icon>add</mat-icon>
                                                 </button>
                                             </div>
-                                            <p class="total-amount">Total Per Item: {{ item.totalAmount | currency }}</p>
+                                            <h2 class="total-amount">Total Amount: {{ item.totalAmount | currency }}</h2>
 
                                             <button class="delete-button" mat-mini-fab color="warn" (click)="removeFromCart(item.product_id)"
                                                 matTooltip="Delete item from Cart">

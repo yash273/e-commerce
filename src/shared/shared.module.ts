@@ -11,6 +11,7 @@ import { DeleteComponent } from './components/delete/delete.component';
 import { SharedService } from './services/shared.service';
 import { AlertComponent } from './components/alert/alert.component';
 import { CartService } from 'src/app/modules/cart/service/cart.service';
+import { ViewOrdersComponent } from './components/view-orders/view-orders.component';
 
 
 
@@ -21,6 +22,7 @@ import { CartService } from 'src/app/modules/cart/service/cart.service';
     TruncatePipe,
     DeleteComponent,
     AlertComponent,
+    ViewOrdersComponent,
   ],
   imports: [
     CommonModule,

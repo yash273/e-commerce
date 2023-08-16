@@ -4,6 +4,7 @@ import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
 import { email, pass } from 'src/shared/constants/regex-rule';
 import { SharedService } from 'src/shared/services/shared.service';
+import { User } from 'src/shared/interfaces/user';
 
 @Component({
   selector: 'app-login',
@@ -39,7 +40,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.authService.getAllUsers().subscribe((res) => {
         if (res) {
-          const user = res.find((a: any) => {
+          const user = res.find((a: User) => {
             return a.email === this.loginForm.value.email && this.loginForm.value.password;
           });
           if (user) {

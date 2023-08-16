@@ -7,6 +7,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { SharedService } from 'src/shared/services/shared.service';
 import { Router } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { User } from 'src/shared/interfaces/user';
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +17,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 export class CartComponent implements OnInit, OnDestroy {
 
   userId!: number;
-  userData: any;
+  userData!: User;
   userCart: any;
   cartItemsWithDetails: { product_id: number; product: any; quantity: number; totalAmount: number }[] = [];
   totalItems!: number;
@@ -91,7 +92,7 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   removeWhenLessThanOne(productId: number) {
-    const dialogRef = this.sharedService.openDeleteDialog("Do You Really Want To Delete The Item?", "Further Quantity Decreasing will lead to depletion of the Item from cart!");
+    const dialogRef = this.sharedService.openDeleteDialog("Do You Really Want To Delete The Item?", "Further Quantity Decreasing will lead to deletion of the Item from cart!");
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
