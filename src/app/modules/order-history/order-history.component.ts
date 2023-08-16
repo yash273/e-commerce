@@ -59,7 +59,7 @@ export class OrderHistoryComponent implements OnInit {
     });
   }
 
-  viewOrder(orderItems: any, orderNumber: string) {
-    this.sharedService.openViewOrders(orderNumber, orderItems);
+  viewOrder(order: any) {
+    this.sharedService.openViewOrders(order);
   }
 }

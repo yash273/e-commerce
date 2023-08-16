@@ -1,6 +1,6 @@
-{{data.id}}
+{{data.orderNumber}}
 <mat-list>
-    <mat-list-item *ngFor="let item of data.orders">
+    <mat-list-item *ngFor="let item of data.items">
         <div matListItemTitle>{{ item.product?.name }}</div>
         <div matListItemLine>({{ item.quantity }} x {{ item.product?.price | currency }})</div>
     </mat-list-item>

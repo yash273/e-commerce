@@ -24,11 +24,11 @@ export class SharedService {
     });
   }
 
-  openViewOrders(orders: any, orderNumber: string) {
+  openViewOrders(data: any) {
     return this.dialog.open(ViewOrdersComponent, {
       width: '600px',
       disableClose: false,
-      data: { orders: orders, id: orderNumber }
+      data
     });
   }
 
