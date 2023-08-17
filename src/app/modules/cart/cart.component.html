@@ -42,19 +42,21 @@
                                                 <h2>{{item.product.price | currency}}</h2>
                                             </mat-card-header>
                                             <div class="item-controls">
-                                                <button mat-icon-button (click)="changeQuantity(item.product_id, 'decrease')">
+                                                <button matTooltip="decrease by one" mat-icon-button
+                                                    (click)="changeQuantity(item.product_id, 'decrease')">
                                                     <mat-icon>remove</mat-icon>
                                                 </button>
                                                 <span class="quantity">
                                                     <h2>{{ item.quantity }}</h2>
                                                 </span>
-                                                <button mat-icon-button (click)="changeQuantity(item.product_id, 'increase')">
+                                                <button matTooltip="increase by one" mat-icon-button
+                                                    (click)="changeQuantity(item.product_id, 'increase')">
                                                     <mat-icon>add</mat-icon>
                                                 </button>
                                             </div>
                                             <h2 class="total-amount">Total Amount: {{ item.totalAmount | currency }}</h2>
 
-                                            <button class="delete-button" mat-mini-fab color="warn" (click)="removeFromCart(item.product_id)"
+                                            <button class="delete-button" mat-icon-button color="warn" (click)="removeFromCart(item.product_id)"
                                                 matTooltip="Delete item from Cart">
                                                 <mat-icon>delete</mat-icon>
                                             </button>
@@ -68,6 +70,9 @@
                             <div class="total-section">
 
                                 <mat-card class="total-card">
+                                    <button mat-icon-button class="shop-more" color="accent" matTooltip="Shop More" routerLink="/home">
+                                        <mat-icon>shop_two</mat-icon>
+                                    </button>
                                     <mat-card-header>
                                         <mat-card-title>Cart Summary</mat-card-title>
                                         <mat-card-subtitle></mat-card-subtitle>
@@ -81,6 +86,7 @@
                                             Proceed To Buy
                                             <mat-icon>exit_to_app</mat-icon>
                                         </button>
+
                                     </mat-card-actions>
                                 </mat-card>
 

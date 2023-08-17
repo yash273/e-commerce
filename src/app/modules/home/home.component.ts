@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   groupedProducts: { [category: string]: any[] } = {};
 
   mobileQuery: MediaQueryList;
+  forSliderQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
 
   constructor(
@@ -25,14 +26,20 @@ export class HomeComponent implements OnInit {
     changeDetectorRef: ChangeDetectorRef, media: MediaMatcher
 
   ) {
-    this.mobileQuery = media.matchMedia('(max-width: 1000px)');
+    this.mobileQuery = media.matchMedia('(max-width: 1200px)');
+    this.forSliderQuery = media.matchMedia('(max-width: 1200px)');
+
+
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+    this.forSliderQuery.addListener(this._mobileQueryListener);
 
   }
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
+    this.forSliderQuery.removeListener(this._mobileQueryListener);
+
   }
 
   ngOnInit(): void {

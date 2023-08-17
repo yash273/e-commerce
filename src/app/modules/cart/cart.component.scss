@@ -22,8 +22,8 @@
 .quantity h2{margin: 0 !important;}
 .delete-button{position: absolute;top: 0;right: 0;box-shadow: none;}
 .no-items{background-color: bisque;}
-.to-buy-button{box-shadow: none;}
-
+.to-buy-button{box-shadow: none;width: 100%;}
+.shop-more{box-shadow: none;align-self: flex-end; margin: 8px 8px 0 0;}
 /*---------------------------------------------------------------------------------------------*/
 @media (max-width:1000px) {
     .product-container{padding: 30px;}

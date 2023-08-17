@@ -37,6 +37,11 @@
                                 </td>
                             </ng-container>
 
+                            <ng-container matColumnDef="brand">
+                                <th mat-header-cell *matHeaderCellDef>Brand </th>
+                                <td mat-cell *matCellDef="let product"> {{product.brand}}</td>
+                            </ng-container>
+
                             <ng-container matColumnDef="category">
                                 <th mat-header-cell *matHeaderCellDef>Category </th>
                                 <td mat-cell *matCellDef="let product"> {{product.category}}</td>
@@ -45,7 +50,9 @@
                             <ng-container matColumnDef="action">
                                 <th mat-header-cell *matHeaderCellDef> Action </th>
                                 <td mat-cell *matCellDef="let product">
-                                    <button mat-icon-button (click)="editProduct(product.id)"><mat-icon>edit</mat-icon></button>
+                                    <button mat-icon-button (click)="editProduct(product.id)" color="accent"><mat-icon>edit</mat-icon></button>
+                                    <button mat-icon-button (click)="viewProduct(product.id)"
+                                        color="primary"><mat-icon>remove_red_eye</mat-icon></button>
                                 </td>
                             </ng-container>
 

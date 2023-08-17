@@ -14,7 +14,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 export class AllProductsComponent implements OnInit {
 
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['id', 'name', 'image', 'category', 'action'];
+  displayedColumns: string[] = ['id', 'name', 'image', 'brand', 'category', 'action'];
   pageSizeOption = [5, 10, 20];
   itemsPerPage = this.pageSizeOption[0];
   currentPage = 1;
@@ -45,7 +45,7 @@ export class AllProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getProductsData()
+    this.getProductsData();
   }
 
   onPageChange(event: PageEvent) {
@@ -63,5 +63,9 @@ export class AllProductsComponent implements OnInit {
 
   editProduct(productId: number) {
     this.router.navigate([`all-products/edit/${productId}`])
+  }
+
+  viewProduct(productId: number) {
+    this.router.navigate([`products/item/${productId}`])
   }
 }

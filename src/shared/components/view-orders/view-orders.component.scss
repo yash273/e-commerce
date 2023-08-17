@@ -1,0 +1,15 @@
+.ordered-image-container{width: 150px;min-height: 150px;min-width: 150px;}
+.ordered-image{max-width: 100%;height: auto;}
+.ordered-item-div{display: flex;margin: 16px 0;}
+.ordered-item-info{display: flex;flex-direction: column;
+    .info{display: flex;flex-direction: column;margin: 3px 8px 8px 8px;
+        mat-divider{margin-top: 4px;}
+        h3{font-weight: 500;}
+    }
+}
+
+/*---------------------------------------------------------------------------------------*/
+@media (max-width : 550px) {
+.ordered-item-div{flex-direction: column;}
+    
+}

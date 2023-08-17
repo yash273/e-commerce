@@ -1,13 +1,31 @@
-{{data.orderNumber}}
-<mat-list>
-    <mat-list-item *ngFor="let item of data.items">
-        <div matListItemTitle>{{ item.product?.name }}</div>
-        <div matListItemLine>({{ item.quantity }} x {{ item.product?.price | currency }})</div>
-    </mat-list-item>
-    <mat-list-item>
-        <mat-icon matListItemIcon>label_important</mat-icon>
-    </mat-list-item>
-</mat-list>
+<div>
+    <ng-container *ngFor="let item of data.items">
+        <div class="ordered-item-div">
+            <div class="ordered-image-container">
+                <img class="ordered-image" src="{{item.product.images[0].url}}" alt="">
+            </div>
+            <span class="ordered-item-info">
+
+                <div class="info">
+
+                    <h3>{{ item.product?.name }}</h3>
+                    <mat-divider></mat-divider>
+                </div>
+                <div class="info">
+                    From {{ item.product?.brand }} ,Sold By: {{item.product?.sold_by}}
+                    <mat-divider></mat-divider>
+                </div>
+                <div class="info">
+                    {{ item.quantity }} x {{ item.product?.price | currency }}
+                    <mat-divider></mat-divider>
+                </div>
+                <div class="info">
+                    {{ item.product?.description }}
+                </div>
+            </span>
+        </div>
+    </ng-container>
+</div>
 <div mat-dialog-actions>
-    <button mat-button mat-dialog-close cdkFocusInitial>Close</button>
+    <button mat-button mat-dialog-close>Close</button>
 </div>

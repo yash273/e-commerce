@@ -2,7 +2,7 @@
     <mat-toolbar-row>
 
         <span class="header-title" [routerLink]="'/home'">
-            <img class="logo" src="assets\logo-colored.png" alt="">
+            <img class="logo" src="assets\logo-white.png" alt="">
         </span>
 
         <div class="navigation-buttons">
@@ -11,7 +11,7 @@
 
         <span class="example-spacer"></span>
         <button mat-icon-button (click)="goToCart()">
-            <mat-icon aria-hidden="false" [matBadge]="cartItemCount" matBadgeColor="accent">shopping_cart</mat-icon>
+            <mat-icon aria-hidden="false" matTooltip="Open Cart" [matBadge]="cartItemCount" matBadgeColor="accent">shopping_cart</mat-icon>
         </button>
         <button mat-button [matMenuTriggerFor]="menu">
             <span> Hi, {{currentUser?.first_name}}</span>

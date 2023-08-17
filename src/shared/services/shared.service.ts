@@ -27,6 +27,7 @@ export class SharedService {
   openViewOrders(data: any) {
     return this.dialog.open(ViewOrdersComponent, {
       width: '600px',
+      maxHeight: '600px',
       disableClose: false,
       data
     });

@@ -3,7 +3,7 @@
 .image-card{width: 100%;max-width: 600px;min-height: 100%;}
 .contents{max-width: 1600px; width: 100%;margin: auto;display: flex;flex-wrap: wrap;justify-content: center;}
 .product-container{display: flex;min-height: calc(100vh - 64px);    padding: 30px 30px 30px;}
-.image-preview-section{display: flex;flex-wrap: wrap;height:480px; align-content: flex-start;overflow-y: auto;background-color: antiquewhite;
+.image-preview-section{display: flex;flex-wrap: wrap;height:480px; align-content: flex-start;overflow-y: auto;margin-top: 8px;background-color: #e3e3e36e;
     .uploaded-image{max-width: 100%;height: auto;}
     .image-div{position: relative;margin: 10px; width: 250px;height: fit-content;
         .removeImage-button{position: absolute;z-index: 10;top: 0;right: 0;}}

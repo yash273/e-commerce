@@ -17,18 +17,24 @@
 
                 <div class="orders-div">
                     <div class="order" *ngFor="let order of orderHistory">
-                        <mat-card class="order-card" (click)="viewOrder(order )">
+                        <mat-card class="order-card">
                             <mat-card-header>
-                                <mat-card-title>Order ID: {{ order.orderNumber }}</mat-card-title>
+                                <mat-card-title>Order ID: {{ order.orderNumber }}
+                                    <button matTooltip="View Ordered Items" class="view-order" mat-icon-button
+                                        (click)="viewOrder(order)"><mat-icon>remove_red_eye</mat-icon></button>
+                                </mat-card-title>
                                 <mat-card-subtitle>Placed on: {{ order.date | date:'medium' }}</mat-card-subtitle>
                             </mat-card-header>
 
                             <mat-card-content>
                                 <mat-list>
-                                    <mat-list-item *ngFor="let item of order.items">
-                                        <div matListItemTitle>{{ item.product?.name }}</div>
-                                        <div matListItemLine>({{ item.quantity }} x {{ item.product?.price | currency }})</div>
-                                    </mat-list-item>
+                                    <div class="items-box">
+                                        <mat-list-item *ngFor="let item of order.items;let i= index;">
+                                            <button disabled="true" mat-fab matListItemIcon>{{i + 1}}</button>
+                                            <div matListItemTitle>{{ item.product?.name }}</div>
+                                            <div matListItemLine>({{ item.quantity }} x {{ item.product?.price | currency }})</div>
+                                        </mat-list-item>
+                                    </div>
                                     <mat-list-item>
                                         <mat-icon matListItemIcon>label_important</mat-icon>
                                         <div matListItemTitle>Total Amount: {{ order.totalAmount | currency }}</div>

@@ -207,7 +207,18 @@ app-header{width: 100%;}
 .error.mdc-snackbar.mat-mdc-snack-bar-container{ --mdc-snackbar-supporting-text-color: #fae6e6;--mdc-snackbar-container-color: #d11a1a}
 .mat-mdc-snack-bar-container app-alert{display: flex;align-items: center;justify-content: space-between;}
 
-
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+router-outlet + * {
+  display: block;  
+  animation: fade 0.7s;
+}
 /*---------------------------------------------------------------------------------------------*/
 @media (min-width:1561px){
     .login-wrapper{padding-right: 0;padding-left: 600px;}

@@ -119,11 +119,9 @@ export class AddEditProductsComponent implements OnInit {
       reader.readAsDataURL(file);
       reader.onload = (e: any) => {
         this.imageArray.push({ url: e.target.result });
+        this.productForm.get('images')?.setValue(this.imageArray);
       };
     }
-    this.productForm.get('images')?.setValue(this.imageArray);
-    this.changeDetectorRef.detectChanges();
-    // console.log(this.productForm.value);
   }
 
   removeImage(imageIndex: number) {

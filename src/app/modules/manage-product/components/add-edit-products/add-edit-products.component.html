@@ -78,10 +78,11 @@
                                         Upload Product Images
                                     </label>
                                 </button>
-                                <mat-error *ngIf="productForm.get('images')?.hasError('required')">This is a Required Field</mat-error>
 
                             </span>
                             <div class="image-preview-section">
+                                <mat-error *ngIf="productForm.get('images')?.hasError('required')">Select At Least One Image.</mat-error>
+
                                 <ng-container *ngFor="let image of imageArray; , let i=index">
                                     <div class="image-div">
                                         <img [src]="image.url" alt="Product Image" class="uploaded-image">
