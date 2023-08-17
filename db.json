@@ -842,18 +842,25 @@
           ],
           "totalAmount": 1201.99,
           "paymentMethod": "cash"
-        }
-      ],
-      "cart": [
-        {
-          "product_id": 12,
-          "quantity": 1
         },
         {
-          "product_id": 15,
-          "quantity": 1
+          "orderNumber": "ORD84454",
+          "date": "2023-08-17T09:54:58.685Z",
+          "items": [
+            {
+              "product_id": 12,
+              "quantity": 1
+            },
+            {
+              "product_id": 15,
+              "quantity": 1
+            }
+          ],
+          "totalAmount": 3803.9799999999996,
+          "paymentMethod": "paypal"
         }
-      ]
+      ],
+      "cart": []
     },
     {
       "first_name": "user",

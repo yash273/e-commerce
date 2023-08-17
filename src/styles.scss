@@ -219,6 +219,7 @@ router-outlet + * {
   display: block;  
   animation: fade 0.7s;
 }
+
 /*---------------------------------------------------------------------------------------------*/
 @media (min-width:1561px){
     .login-wrapper{padding-right: 0;padding-left: 600px;}
