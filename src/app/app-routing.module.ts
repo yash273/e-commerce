@@ -45,6 +45,12 @@ const routes: Routes = [
     title: 'Orders | E-com',
     loadChildren: () =>
       import('./modules/order-history/order-history.module').then((m) => m.OrderHistoryModule)
+  },
+  {
+    path: 'responses',
+    title: 'Responses | E-com',
+    loadChildren: () =>
+      import('./modules/response/response.module').then((m) => m.ResponseModule)
   }
 
 ];

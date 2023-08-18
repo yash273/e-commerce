@@ -118,7 +118,7 @@ $primary: #f00;
 --------------------------------------------------------------------------------------------------------*/
 * { outline: none !important;box-sizing: border-box; }
 html, body { min-width: 320px; min-height: 100vh; }
-body {background-color: #FAFAFA ;font-size: 15px; line-height: 22px; font-family: 'Roboto', sans-serif; -ms-overflow-style: scrollbar; -webkit-font-smoothing: subpixel-antialiased;}
+body {font-size: 15px; line-height: 22px; font-family: 'Roboto', sans-serif; -ms-overflow-style: scrollbar; -webkit-font-smoothing: subpixel-antialiased;}
 .wrapper { min-height: 100vh; }
 a { color: #000; text-decoration: none; }
 a:hover { color: #999; text-decoration: none; }

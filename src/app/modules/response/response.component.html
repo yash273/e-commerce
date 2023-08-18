@@ -1,0 +1,43 @@
+<div class="top-container">
+    <button mat-icon-button color="accent" (click)="sidenav.toggle()" class="close-button">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <app-header></app-header>
+</div>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav [opened]="'true'" [mode]="'side'">
+        <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="product-container">
+            <div class="contents">
+
+                <!-- <dx-data-grid [allowColumnResizing]="true" [columnAutoWidth]="true" id="dataGrid" [dataSource]="dataSource"
+                    [columns]="columns"></dx-data-grid> -->
+                <dx-data-grid [dataSource]="dataSource" [allowColumnResizing]="true" [columnAutoWidth]="true">
+                    <dxi-column dataField="AllocationName" caption="AllocationName"></dxi-column>
+                    <dxi-column dataField="AllocationType" caption="AllocationType"></dxi-column>
+                    <dxi-column dataField="StartDate" caption="StartDate"></dxi-column>
+                    <dxi-column dataField="EndDate" caption="EndDate"></dxi-column>
+                    <dxi-column dataField="AllocatedAmount" caption="AllocatedAmount"></dxi-column>
+                    <dxi-column dataField="Active" caption="Active">
+                        <div *dxTemplate="let cellData of 'cellTemplate'">
+                            <ng-container *ngIf="cellData.value">
+                                <i class="dx-icon dx-icon-check"></i>
+                            </ng-container>
+                        </div>
+                    </dxi-column>
+                    <dxi-column dataField="CrisisMaxAmount" caption="CrisisMaxAmount"></dxi-column>
+                    <dxi-column dataField="AgencyName" caption="AgencyName"></dxi-column>
+                    <dxi-column dataField="ProgramCode" caption="ProgramCode"></dxi-column>
+                    <dxi-column dataField="FederalFiscalYear" caption="FederalFiscalYear"></dxi-column>
+                    <dxi-column dataField="MaxAdditionalBenefit" caption="MaxAdditionalBenefit"></dxi-column>
+                    <dxi-column dataField="NoServiceBudgetLimit" caption="NoServiceBudgetLimit"></dxi-column>
+                    <dxi-column dataField="AllowMultipleTimes" caption="AllowMultipleTimes"></dxi-column>
+                    <dxi-column dataField="VendorDeliveryTracking" caption="VendorDeliveryTracking"></dxi-column>
+                </dx-data-grid>
+
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
